@@ -19,7 +19,7 @@ with zipfile.ZipFile(args.apk) as archive:
             dex=archive.read(n)
             assert b'Lcn/zcubed/' not in dex,'Excluded application classes included'
             if args.release:
-                for debug_type in (b'PisKeyboardTestActivity;',b'PisMigrationProbe;',b'PisWordFrequencyProbe;'):
+                for debug_type in (b'PisKeyboardTestActivity;',b'PisMigrationProbe;',b'PisWordFrequencyProbe;',b'PisCandidateProbe;'):
                     assert debug_type not in dex,'Debug class included: '+debug_type.decode()
     entry='assets/translation/Hy-MT2-1.8B-Q4_K_M.gguf';info=archive.getinfo(entry)
     assert info.file_size==1133080448 and info.compress_type==zipfile.ZIP_STORED,'Model must be complete and uncompressed'

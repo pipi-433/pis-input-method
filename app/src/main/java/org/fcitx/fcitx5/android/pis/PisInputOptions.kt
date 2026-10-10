@@ -15,7 +15,7 @@ object PisInputOptions {
         require(scheme in listOf("full", "shoudao"))
         prefs(context).edit().putString("scheme", scheme).remove("private").remove("matrix").apply { values.forEach { (key, value) -> if(key !in setOf("private","matrix")) putBoolean(key, value) } }.apply()
     }
-    fun signature(context: Context) = listOf("embedded-pinyin-v2", scheme(context), bool(context,"prediction"), bool(context,"fuzzy_flat",false), bool(context,"fuzzy_nasal",false), bool(context,"fuzzy_southern",false)).joinToString("|")
+    fun signature(context: Context) = listOf("embedded-pinyin-v2", "shoudao-exact-v1", scheme(context), bool(context,"prediction"), bool(context,"fuzzy_flat",false), bool(context,"fuzzy_nasal",false), bool(context,"fuzzy_southern",false)).joinToString("|")
     suspend fun apply(engine: FcitxAPI, context: Context) {
         val config = engine.getAddonConfig("pinyin")["cfg"]
         val selected = scheme(context)
@@ -33,6 +33,8 @@ object PisInputOptions {
         config.getOrCreate("PreeditMode").value = "Composing pinyin"
         config.getOrCreate("PreeditCursorPositionAtBeginning").value = "False"
         val fuzzy = config.getOrCreate("Fuzzy")
+        // Adjacent-key correction turns deliberate two-key codes such as UI into other syllables.
+        fuzzy.getOrCreate("Correction").value = if (selected == "shoudao") "None" else "QWERTY"
         fun set(name: String, value: Boolean) { fuzzy.getOrCreate(name).value = if (value) "True" else "False" }
         listOf("C_CH","S_SH","Z_ZH").forEach { set(it,bool(context,"fuzzy_flat",false)) }
         listOf("AN_ANG","EN_ENG","IN_ING","IAN_IANG","UAN_UANG").forEach { set(it,bool(context,"fuzzy_nasal",false)) }

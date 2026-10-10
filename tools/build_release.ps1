@@ -1,7 +1,8 @@
 param(
-    [string]$Version = '2.0.0',
+    [string]$Version = '2.0.1',
     [string]$Python = 'python',
-    [string]$OutputDirectory = ''
+    [string]$OutputDirectory = '',
+    [string]$CommitHash = ''
 )
 $ErrorActionPreference = 'Stop'
 $repo = Split-Path -Parent $PSScriptRoot
@@ -14,6 +15,7 @@ if (!(Test-Path -LiteralPath $keyFile) -or !(Test-Path -LiteralPath $credentials
 if (!$env:JAVA_HOME -or !$env:ANDROID_HOME) { throw 'Set JAVA_HOME and ANDROID_HOME first.' }
 if (!$OutputDirectory) { $OutputDirectory = Join-Path $repo ".pis-local/releases/$Version" }
 if ($Version -notmatch '^\d+\.\d+\.\d+$') { throw 'Use a numeric major.minor.patch version.' }
+if ($CommitHash -and $CommitHash -notmatch '^[0-9a-fA-F]{7,40}$') { throw 'Use a Git commit hash.' }
 $oldFile = $env:SIGN_KEY_FILE; $oldPwd = $env:SIGN_KEY_PWD; $oldAlias = $env:SIGN_KEY_ALIAS
 try {
     $credential = Import-Clixml -LiteralPath $credentials
@@ -23,8 +25,12 @@ try {
     New-Item -ItemType Directory -Path $OutputDirectory -Force | Out-Null
     Push-Location $repo
     try {
-        & ./gradlew.bat --no-daemon "-PpythonExecutable=$Python" -PbuildABI=arm64-v8a "-PbuildVersionName=$Version" :app:assembleRelease
+        $gradleArguments = @('--no-daemon', '-Pkotlin.incremental=false', "-PpythonExecutable=$Python", '-PbuildABI=arm64-v8a', "-PbuildVersionName=$Version")
+        if ($CommitHash) { $gradleArguments += "-PbuildCommitHash=$CommitHash" }
+        & ./gradlew.bat @gradleArguments :app:assembleRelease
         if ($LASTEXITCODE -ne 0) { throw 'Release build failed.' }
+        & $Python tools/check_fcitx_api.py --classes app/build/intermediates/built_in_kotlinc/release/compileReleaseKotlin/classes
+        if ($LASTEXITCODE -ne 0) { throw 'Release FcitxAPI delegate verification failed.' }
         $apkFiles = @(Get-ChildItem app/build/outputs/apk/release -Filter '*.apk' | Where-Object { $_.Name -match 'arm64-v8a' -and $_.Name -notmatch 'unsigned' })
         if ($apkFiles.Count -ne 1) { throw 'Expected exactly one signed ARM64 APK.' }
         $destination = Join-Path $OutputDirectory "pis-input-method-$Version-arm64.apk"

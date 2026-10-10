@@ -1,6 +1,6 @@
 # pis 输入法：Fcitx 底座与独立界面
 
-pis 基于 Fcitx5 Android 0.1.3，固定提交 `048f581c652367567b8ee5c28c5163b805288895`，保留上游版权和许可证。最新构建为 2.0.0，包名 `io.pis.inputmethod`，使用 ARM64 Release 构建和专用签名，包含候选栏横向滑动。
+pis 基于 Fcitx5 Android 0.1.3，固定提交 `048f581c652367567b8ee5c28c5163b805288895`，保留上游版权和许可证。最新构建为 2.0.1，包名 `io.pis.inputmethod`，使用 ARM64 Release 构建和专用签名，包含候选栏横向滑动。
 
 ## 界面与设置
 
@@ -12,7 +12,7 @@ pis 基于 Fcitx5 Android 0.1.3，固定提交 `048f581c652367567b8ee5c28c5163b8
 
 ## 输入与本地服务
 
-中文支持全拼和双拼（首道），通过 Fcitx/libime 管理输入、候选、用户词库与近期历史。字母长按和下滑输入对应角标；删除支持长按、左扫删除和右扫恢复。
+中文支持全拼和双拼（首道），通过 Fcitx/libime 管理输入、候选、用户词库与近期历史。字母长按和上滑输入对应角标；删除支持长按、左扫删除和右扫恢复。
 
 长按逗号打开剪贴板，长按句号进行离线翻译，长按空格进行离线语音识别。候选短释义和长按词义通过本地 `gloss.db` 查询。WordNet 仅用于调试版实验。
 
@@ -20,7 +20,7 @@ pis 基于 Fcitx5 Android 0.1.3，固定提交 `048f581c652367567b8ee5c28c5163b8
 
 ## 项目资料
 
-- [最新 APK 构建记录](docs/releases/pis-github-20261010.md)
+- [最新 APK 构建记录](docs/releases/pis-2.0.1.md)
 - [候选栏滑动说明](docs/releases/pis-horizontal-candidates.md)
 - [实现状态](PIS_MIGRATION_STATUS.md)
 - [构建方法](BUILD.md)与[维护者构建配置](PIS_BUILD.md)

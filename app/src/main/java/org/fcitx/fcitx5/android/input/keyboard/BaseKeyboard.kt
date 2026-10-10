@@ -223,6 +223,11 @@ abstract class BaseKeyboard(
                     }
                 }
             }
+            val keySwipeDirection = def.behaviors.firstNotNullOfOrNull { behavior ->
+                (behavior as? KeyDef.Behavior.Swipe)?.direction
+            }
+            fun symbolSwipeTriggered(totalY: Int) =
+                (keySwipeDirection ?: swipeSymbolDirection).checkY(totalY)
             def.behaviors.forEach {
                 when (it) {
                     is KeyDef.Behavior.Press -> {
@@ -254,7 +259,7 @@ abstract class BaseKeyboard(
                         onGestureListener = OnGestureListener { view, event ->
                             when (event.type) {
                                 GestureType.Up -> {
-                                    if (!event.consumed && swipeSymbolDirection.checkY(event.totalY)) {
+                                    if (!event.consumed && symbolSwipeTriggered(event.totalY)) {
                                         onAction(it.action)
                                         true
                                     } else {
@@ -330,7 +335,7 @@ abstract class BaseKeyboard(
                                         PopupAction.PreviewAction(view.id, it.content, view.bounds)
                                     )
                                     GestureType.Move -> {
-                                        val triggered = swipeSymbolDirection.checkY(event.totalY)
+                                        val triggered = symbolSwipeTriggered(event.totalY)
                                         val text = if (triggered) it.alternative else it.content
                                         onPopupAction(
                                             PopupAction.PreviewUpdateAction(view.id, text)

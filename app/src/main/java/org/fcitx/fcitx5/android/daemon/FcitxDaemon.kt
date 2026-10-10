@@ -15,6 +15,7 @@ import org.fcitx.fcitx5.android.FcitxApplication
 import org.fcitx.fcitx5.android.R
 import org.fcitx.fcitx5.android.core.Fcitx
 import org.fcitx.fcitx5.android.core.FcitxAPI
+import org.fcitx.fcitx5.android.core.FcitxEvent
 import org.fcitx.fcitx5.android.core.FcitxLifecycle
 import org.fcitx.fcitx5.android.core.lifeCycleScope
 import org.fcitx.fcitx5.android.core.whenReady
@@ -43,7 +44,12 @@ object FcitxDaemon {
     private val realFcitx by lazy { Fcitx(appContext) }
 
     // don't leak fcitx instance
-    private val fcitxImpl by lazy { object : FcitxAPI by realFcitx {} }
+    private val fcitxImpl by lazy {
+        object : FcitxAPI by realFcitx {
+            override val candidateListCached: FcitxEvent.CandidateListEvent.Data
+                get() = realFcitx.candidateListCached
+        }
+    }
 
     private fun mkConnection(name: String) = object : FcitxConnection {
 

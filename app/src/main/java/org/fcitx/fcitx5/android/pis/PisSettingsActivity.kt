@@ -180,6 +180,7 @@ class PisSettingsActivity : Activity() {
         modes.addView(full); modes.addView(half); root.addView(modes)
         modes.check(if (PisInputOptions.scheme(this) == "shoudao") half.id else full.id)
         label("全拼：nihao；首道双拼：nihd。双拼状态下，小标提示对应声母和韵母。",13)
+        label("首道零声母：UE → e，UI → ei，UF → eng。字母键长按或上滑输入角标数字/符号。",13)
         label("个人词频由输入引擎学习，全拼与首道双拼共用新词库。长按候选可使用引擎提供的删词操作。",13)
         val controls = linkedMapOf<String, Switch>()
         listOf("prediction" to "中文联想", "learning" to "打字学习新词",

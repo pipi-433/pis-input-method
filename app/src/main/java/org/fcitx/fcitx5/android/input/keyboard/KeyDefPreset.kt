@@ -53,7 +53,7 @@ class AlphabetKey(
     ),
     setOf(
         Behavior.Press(KeyAction.FcitxKeyAction(character)),
-        Behavior.Swipe(KeyAction.CommitAction(punctuation)),
+        Behavior.Swipe(KeyAction.CommitAction(punctuation), SwipeSymbolDirection.Up),
         Behavior.LongPress(KeyAction.CommitAction(punctuation))
     ),
     popup ?: arrayOf(

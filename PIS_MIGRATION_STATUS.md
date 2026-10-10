@@ -1,8 +1,8 @@
 # pis 实现状态
 
-当前源码与 2026-10-10 最新 ARM64 Release APK 均已包含候选栏横向滑动。见 [最新构建记录](docs/releases/pis-github-20261010.md)与[横向滑动记录](docs/releases/pis-horizontal-candidates.md)。此前的 APK、模拟器安装包和源码 ZIP 单独保留作历史记录。
+当前源码与 2026-10-10 最新 ARM64 Release APK 均已包含候选栏横向滑动。见 [最新构建记录](docs/releases/pis-2.0.1.md)与[横向滑动记录](docs/releases/pis-horizontal-candidates.md)。此前的 APK、模拟器安装包和源码 ZIP 单独保留作历史记录。
 
-更新日期：2026-10-10。最新构建沿用版本 2.0.0，包名 `io.pis.inputmethod`，ARM64 versionCode 20002，使用原专用 Release 签名。此前的交付信息见 [2.0.0 记录](docs/releases/pis-2.0.0.md)，本次重建的独立校验值见最新构建记录。
+更新日期：2026-10-10。最新构建为 2.0.1，包名 `io.pis.inputmethod`，ARM64 versionCode 20012，使用原专用 Release 签名。此前的交付信息见 [2.0.0 记录](docs/releases/pis-2.0.0.md)，2.0.1 校验值见最新构建记录。
 
 ## 本轮更新（已打包）
 
@@ -14,7 +14,7 @@
 ## 既有功能
 
 - 全拼与双拼（首道）、默认中文、中英切换及声韵母角标；拼音 composing 显示在编辑器中。
-- QWERTY 和纯数字九宫格；字母长按/下滑输入角标，逗号长按剪贴板、句号长按翻译、空格长按语音。
+- QWERTY 和纯数字九宫格；字母长按/上滑输入角标，逗号长按剪贴板、句号长按翻译、空格长按语音。
 - 个人词频管理：搜索、添加、调整近期次数、固定优先级、清零、删除和清理。数据直接读写 Fcitx/libime 词库和历史，全拼与双拼共用引擎数据。
 - 长按删除、左扫删除与右扫恢复；按 Unicode 码点处理文本，编辑器连接或选区变化时取消过期操作。
 - 智能回车支持发送、搜索、下一项、自定义 actionId 和多行换行。
@@ -27,7 +27,7 @@
 
 ## 验证记录
 
-本轮已通过 `:app:assembleRelease`（1 分 28 秒）及包检查，包含候选栏滑动；现有 5 项单元测试全部通过。后续验证项目：UI、候选滑动、录音及真机交互。
+2.0.1 已通过 ARM64 Release 编译、52 个接口方法检查及包校验；7 项单元测试通过。模拟器验证候选分页、零声母编码和26个字母键的上滑/长按事件。真机交互与录音继续验证。
 
 开发阶段已完成 x86_64 模拟器构建与安装，覆盖拼音候选、数字、手势、词频持久化、翻译替换、语音编辑和配置存储的对应检查。证据保存在本地 `verification/evidence/`。
 
@@ -42,7 +42,7 @@
 | 内容 | 位置 | 是否包含本轮滑动 |
 |---|---|---|
 | 当前源码 | GitHub 仓库 `pipi-433/pis-input-method` | 是 |
-| 最新 APK | 本地 `pis-input-method-2.0.0-github-20261010/` 交付目录 | 是 |
+| 最新 APK | 本地 `pis-input-method-2.0.1-release/` 交付目录 | 是 |
 | 此前 APK | 本地 `pis-input-method-2.0.0-release/` 交付目录 | 否 |
 | 此前源码快照 | 本地 `pis-input-method-2.0.0-source-local.zip` | 否 |
 
