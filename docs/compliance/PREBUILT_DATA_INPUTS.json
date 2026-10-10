@@ -1,0 +1,28 @@
+{
+  "prebuilder_commit": "eb156443de3b387089e51f9bd19df4e3ddce1732",
+  "source_url": "https://raw.githubusercontent.com/fcitx5-android/prebuilder/eb156443de3b387089e51f9bd19df4e3ddce1732/build.cfg",
+  "configured_inputs": {
+    "en_dict": "en_dict-20121020.tar.gz",
+    "en_dict_sha256": "c44a5d7847925eea9e4d2d04748d442cd28dd9299a0b572ef7d91eac4f5a6ceb",
+    "lm_sc": "lm_sc.arpa-20260606.tar.zst",
+    "lm_sc_sha256": "8c7da1b03770060269b92c0e6172552a2a9041cb74ef0be0b2659e10f0a703f1",
+    "pinyin_dict": "dict-20260430.tar.zst",
+    "pinyin_dict_sha256": "3edc008d90fcd61b9967b9e590f396189d7a00fa74c45ecde0d9850a0fdd6241",
+    "table": "table-20240108.tar.gz",
+    "table_sha256": "729c596d86907de727c74d0fc3fd241c406c5debd2b4cb74eefe022387ee9dae",
+    "chinese_addon_repo": "https://raw.githubusercontent.com/fcitx/fcitx5-chinese-addons/5.0.0/im/pinyin/",
+    "chaizi_sha256": "cd659605360120f7390fda1a278eea12c4df6d763a95c8099068ab09cfafd058",
+    "py_stroke": "py_stroke-20250329.tar.gz",
+    "py_stroke_sha256": "c1a7ca7225d3614ab83353fc827503006a980447762018f53760425d7b5303a6",
+    "py_table": "py_table-20121124.tar.gz",
+    "py_table_sha256": "42146ac97de6c13d55f9e99ed873915f4c66739e9c11532a34556badf9792c04",
+    "boost_version": "1.90.0",
+    "boost_sha256": "aca59f889f0f32028ad88ba6764582b63c916ce5f77b31289ad19421a96c555f",
+    "jyutping_dict": "jyutping-dict-20180104.tar.xz",
+    "jyutping_dict_sha256": "e3a5b13edb8efa2f764245a3232f99ba7e7670e22b8cbe666a4fffa84b35f35b",
+    "jyutping_model": "jyutping-model-20180103.tar.xz",
+    "jyutping_model_sha256": "4f07229e2080f0ee30ce51b016409f260af82a58dd406a01ea5981b59ca87071",
+    "fcitx_data_url": "https://download.fcitx-im.org/data/"
+  },
+  "not_all_configured_plugin_data_is_in_this_apk": true
+}

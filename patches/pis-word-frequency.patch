@@ -1,0 +1,143 @@
+diff --git a/im/pinyin/pinyin.cpp b/im/pinyin/pinyin.cpp
+index 3e73a82..0f05c68 100644
+--- a/im/pinyin/pinyin.cpp
++++ b/im/pinyin/pinyin.cpp
+@@ -64,6 +64,8 @@
+ #include <future>
+ #include <ios>
+ #include <istream>
++#include <map>
++#include <sstream>
+ #include <iterator>
+ #include <libime/core/historybigram.h>
+ #include <libime/core/languagemodel.h>
+@@ -2304,8 +2306,97 @@ void PinyinEngine::keyEvent(const InputMethodEntry &entry, KeyEvent &event) {
+     }
+ }
+ 
++const Configuration *PinyinEngine::getSubConfig(const std::string &path) const {
++    if (path != "piswordfrequency") return nullptr;
++    struct Row { std::string word, reading, code; int count = 0, priority = 0; float weight = 0; };
++    std::map<std::pair<std::string,std::string>,Row> rows;
++    auto add = [&](const std::string &word, const std::string &reading) {
++        if (word.empty() || word.size() > 128 || word.find_first_of("\r\n\t ") != std::string::npos || reading.empty()) return;
++        try {
++            auto encoded = libime::PinyinEncoder::encodeFullPinyin(reading);
++            std::string code(encoded.begin(),encoded.end());
++            const auto canonical = libime::PinyinEncoder::decodeFullPinyin(code);
++            auto &row = rows[{word,canonical}]; row.word = word; row.reading = canonical; row.code = code;
++        } catch (const std::exception &) {}
++    };
++    std::ostringstream dictionary;
++    ime_->dict()->save(libime::PinyinDictionary::UserDict,dictionary,libime::PinyinDictFormat::Text);
++    std::istringstream dict(dictionary.str()); std::string line;
++    while (std::getline(dict,line)) {
++        std::istringstream fields(line); std::string escapedWord,reading;
++        if (fields >> escapedWord >> reading) { const auto word = stringutils::unescapeForValue(escapedWord); if (word) add(*word,reading); }
++    }
++    std::ostringstream history; ime_->model()->history().dump(history);
++    std::istringstream hist(history.str());
++    while (std::getline(hist,line)) {
++        std::istringstream sentence(line); std::string token;
++        while (std::getline(sentence,token,' ')) {
++            const auto tab = token.find('\t'); if (tab == std::string::npos) continue;
++            try {
++                auto word = stringutils::unescapeForValue(token.substr(0,tab));
++                auto code = stringutils::unescapeForValue(token.substr(tab+1));
++                if (word && code) add(*word,libime::PinyinEncoder::decodeFullPinyin(*code));
++            } catch (const std::exception &) {}
++        }
++    }
++    std::map<std::pair<std::string,std::string>,int> priorities;
++    const_cast<CustomPhraseDict &>(customPhrase_).foreach([&](const std::string &key,const auto &phrases) {
++        for (const auto &phrase : phrases) {
++            if (phrase.order() > 0) priorities[{phrase.value(),key}] = phrase.order();
++        }
++    });
++    std::vector<Row> result;
++    for (auto &[id,row] : rows) {
++        auto compact = row.reading; compact.erase(std::remove(compact.begin(),compact.end(),'\''),compact.end());
++        if (const auto priority = priorities.find({row.word,compact}); priority != priorities.end()) row.priority = priority->second;
++        row.count = ime_->model()->history().rawUnigramFrequency({row.word,row.code});
++        row.weight = ime_->model()->history().unigramFrequency({row.word,row.code});
++        result.push_back(row);
++    }
++    std::sort(result.begin(),result.end(),[](const auto &a,const auto &b) { if (a.count != b.count) return a.count > b.count; return a.word < b.word; });
++    std::ostringstream output;
++    for (size_t i = 0; i < std::min<size_t>(result.size(),10000); ++i) { const auto &row = result[i]; output << row.word << '\t' << row.reading << '\t' << row.count << '\t' << row.weight << '\t' << row.priority << '\n'; }
++    pisWordFrequency_.entries.setValue(output.str());
++    return &pisWordFrequency_;
++}
++
+ void PinyinEngine::setSubConfig(const std::string &path,
+                                 const RawConfig &config) {
++    if (path == "piswordfrequency") {
++        pisWordFrequency_.error.setValue("");
++        auto value = [&](const char *key) { const auto field = config.get(key); return field ? field->value() : std::string(); };
++        try {
++            const auto action = value("Action");
++            if (action == "clear") {
++                ime_->dict()->clear(libime::PinyinDictionary::UserDict); ime_->model()->history().clear(); customPhrase_.clear(); save(); saveCustomPhrase(); return;
++            }
++            const auto word = value("Word"), reading = value("Reading"), half = value("HalfKeys");
++            if (word.empty() || word.size() > 128 || word.find_first_of("\r\n\t ") != std::string::npos) throw std::invalid_argument("Invalid word");
++            auto encoded = libime::PinyinEncoder::encodeFullPinyin(reading);
++            if (encoded.empty() || encoded.size() > 128) throw std::invalid_argument("Use space-separated full pinyin syllables");
++            const std::string code(encoded.begin(),encoded.end());
++            auto full = libime::PinyinEncoder::decodeFullPinyin(code); full.erase(std::remove(full.begin(),full.end(),'\''),full.end());
++            if (action == "reset" || action == "delete") ime_->model()->history().forget(word,code);
++            if (action == "delete") {
++                ime_->dict()->removeWord(libime::PinyinDictionary::UserDict,reading,word);
++                customPhrase_.removePhrase(full,word); if (!half.empty()) customPhrase_.removePhrase(half,word);
++            } else if (action == "set") {
++                const auto count = std::stoi(value("Count")), priority = std::stoi(value("Priority"));
++                const auto oldCount = ime_->model()->history().rawUnigramFrequency({word,code});
++                if (count < 0 || (count > 1000 && count != oldCount) || priority < 0 || priority > 100) throw std::invalid_argument("Counts 0-1000; priority 0-100");
++                if (!half.empty() && (half.size() > 128 || half.find_first_not_of("abcdefghijklmnopqrstuvwxyz;") != std::string::npos)) throw std::invalid_argument("Invalid shoudao keys");
++                ime_->dict()->addWord(libime::PinyinDictionary::UserDict,reading,word);
++                if (ime_->model()->history().rawUnigramFrequency({word,code}) != count) {
++                    ime_->model()->history().forget(word,code);
++                    for (int i = 0; i < count; ++i) ime_->model()->history().addWithCode(std::vector<libime::HistoryBigram::WordWithCode>{{word,code}});
++                }
++                customPhrase_.removePhrase(full,word); if (!half.empty()) customPhrase_.removePhrase(half,word);
++                if (priority > 0) { customPhrase_.addPhrase(full,word,priority); if (!half.empty()) customPhrase_.addPhrase(half,word,priority); }
++            } else if (action != "reset") throw std::invalid_argument("Unknown word frequency action");
++            save(); saveCustomPhrase();
++        } catch (const std::exception &error) { pisWordFrequency_.error.setValue(error.what()); }
++        return;
++    }
+     FCITX_UNUSED(config);
+     if (path == "dictmanager") {
+         loadExtraDict();
+diff --git a/im/pinyin/pinyin.h b/im/pinyin/pinyin.h
+index 5ace603..962d4e2 100644
+--- a/im/pinyin/pinyin.h
++++ b/im/pinyin/pinyin.h
+@@ -375,6 +375,11 @@ class PinyinEngine;
+ 
+ enum class PinyinMode { Normal, StrokeFilter, ForgetCandidate, Punctuation };
+ 
++// pis exposes actual runtime user words and history through the existing config API.
++FCITX_CONFIGURATION(PisWordFrequencyConfig,
++    Option<std::string> entries{this, "Entries", "pis word frequency rows", ""};
++    Option<std::string> error{this, "Error", "pis word frequency error", ""};)
++
+ class PinyinState : public InputContextProperty {
+ public:
+     PinyinState(PinyinEngine *engine);
+@@ -423,6 +428,7 @@ public:
+                           InvokeActionEvent &event) override;
+ 
+     const Configuration *getConfig() const override;
++    const Configuration *getSubConfig(const std::string &path) const override;
+     const Configuration *
+     getConfigForInputMethod(const InputMethodEntry &entry) const override;
+ 
+@@ -506,6 +512,7 @@ private:
+     Instance *instance_;
+     PinyinEngineConfig config_;
+     PinyinEngineConfig pyConfig_;
++    mutable PisWordFrequencyConfig pisWordFrequency_;
+     std::unique_ptr<libime::PinyinIME> ime_;
+     std::vector<std::regex> quickphraseTriggerRegex_;
+     KeyList selectionKeys_;

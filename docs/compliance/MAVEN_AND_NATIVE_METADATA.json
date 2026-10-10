@@ -1,0 +1,1246 @@
+{
+  "libraries": [
+    {
+      "uniqueId": "BYVoid/OpenCC",
+      "artifactVersion": "1.2.0",
+      "name": "BYVoid/OpenCC",
+      "description": "opensource project for conversions between Traditional Chinese, Simplified Chinese and Japanese Kanji (Shinjitai).",
+      "website": "https://opencc.byvoid.com/",
+      "licenses": [
+        "Apache-2.0"
+      ],
+      "tag": "native"
+    },
+    {
+      "uniqueId": "androidx.activity:activity",
+      "artifactVersion": "1.13.0",
+      "name": "Activity",
+      "description": "Provides the base Activity subclass and the relevant hooks to build a composable structure on top.",
+      "website": "https://developer.android.com/jetpack/androidx/releases/activity#1.13.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.activity:activity-ktx",
+      "artifactVersion": "1.13.0",
+      "name": "Activity Kotlin Extensions",
+      "description": "Kotlin extensions for 'activity' artifact",
+      "website": "https://developer.android.com/jetpack/androidx/releases/activity#1.13.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.annotation:annotation-experimental",
+      "artifactVersion": "1.4.1",
+      "name": "Experimental annotation",
+      "description": "Java annotation for use on unstable Android API surfaces. When used in conjunction with the Experimental annotation lint checks, this annotation provides functional parity with Kotlin's Experimental annotation.",
+      "website": "https://developer.android.com/jetpack/androidx/releases/annotation#1.4.1",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.annotation:annotation-jvm",
+      "artifactVersion": "1.9.1",
+      "name": "Annotation",
+      "description": "Provides source annotations for tooling and readability.",
+      "website": "https://developer.android.com/jetpack/androidx/releases/annotation#1.9.1",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.appcompat:appcompat",
+      "artifactVersion": "1.7.1",
+      "name": "AppCompat",
+      "description": "Provides backwards-compatible implementations of UI-related Android SDK functionality, including dark mode and Material theming.",
+      "website": "https://developer.android.com/jetpack/androidx/releases/appcompat#1.7.1",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.appcompat:appcompat-resources",
+      "artifactVersion": "1.7.1",
+      "name": "AppCompat Resources",
+      "description": "Provides backward-compatible implementations of resource-related Android SDKfunctionality, including color state list theming.",
+      "website": "https://developer.android.com/jetpack/androidx/releases/appcompat#1.7.1",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.arch.core:core-common",
+      "artifactVersion": "2.2.0",
+      "name": "Android Arch-Common",
+      "description": "Android Arch-Common",
+      "website": "https://developer.android.com/jetpack/androidx/releases/arch-core#2.2.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.arch.core:core-runtime",
+      "artifactVersion": "2.2.0",
+      "name": "Android Arch-Runtime",
+      "description": "Android Arch-Runtime",
+      "website": "https://developer.android.com/jetpack/androidx/releases/arch-core#2.2.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.autofill:autofill",
+      "artifactVersion": "1.3.0",
+      "name": "Autofill",
+      "description": "AndroidX Autofill",
+      "website": "https://developer.android.com/jetpack/androidx/releases/autofill#1.3.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.cardview:cardview",
+      "artifactVersion": "1.0.0",
+      "name": "Support CardView v7",
+      "description": "Android Support CardView v7",
+      "website": "http://developer.android.com/tools/extras/support-library.html",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.collection:collection-jvm",
+      "artifactVersion": "1.5.0",
+      "name": "collections",
+      "description": "Standalone efficient collections.",
+      "website": "https://developer.android.com/jetpack/androidx/releases/collection#1.5.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.collection:collection-ktx",
+      "artifactVersion": "1.5.0",
+      "name": "Collections Kotlin Extensions",
+      "description": "Kotlin extensions for 'collection' artifact",
+      "website": "https://developer.android.com/jetpack/androidx/releases/collection#1.5.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.compose.runtime:runtime-annotation-android",
+      "artifactVersion": "1.9.0",
+      "name": "Compose Runtime Annotation",
+      "description": "Provides Compose-specific annotations used by the compiler and tooling",
+      "website": "https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.9.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.concurrent:concurrent-futures",
+      "artifactVersion": "1.0.0",
+      "name": "AndroidX Futures",
+      "description": "Androidx implementation of Guava's ListenableFuture",
+      "website": "https://developer.android.com/topic/libraries/architecture/index.html",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.constraintlayout:constraintlayout",
+      "artifactVersion": "2.2.1",
+      "name": "ConstraintLayout",
+      "description": "This library offers a flexible and adaptable way to position and animate widgets",
+      "website": "https://developer.android.com/jetpack/androidx/releases/constraintlayout#2.2.1",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.constraintlayout:constraintlayout-core",
+      "artifactVersion": "1.1.1",
+      "name": "ConstraintLayout Core",
+      "description": "This library contains engines and algorithms for constraint based layout and complex animations (it is used by the ConstraintLayout library)",
+      "website": "https://developer.android.com/jetpack/androidx/releases/constraintlayout#1.1.1",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.coordinatorlayout:coordinatorlayout",
+      "artifactVersion": "1.3.0",
+      "name": "Coordinator Layout",
+      "description": "The Support Library is a static library that you can add to your Android application in order to use APIs that are either not available for older platform versions or utility APIs that aren't a part of the framework APIs. Compatible on devices running API 14 or later.",
+      "website": "https://developer.android.com/jetpack/androidx/releases/coordinatorlayout#1.3.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.core:core",
+      "artifactVersion": "1.18.0",
+      "name": "Core",
+      "description": "Provides backward-compatible implementations of Android platform APIs and features.",
+      "website": "https://developer.android.com/jetpack/androidx/releases/core#1.18.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.core:core-ktx",
+      "artifactVersion": "1.18.0",
+      "name": "Core Kotlin Extensions",
+      "description": "Kotlin extensions for 'core' artifact",
+      "website": "https://developer.android.com/jetpack/androidx/releases/core#1.18.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.core:core-viewtree",
+      "artifactVersion": "1.0.0",
+      "name": "androidx.core:core-viewtree",
+      "description": "Provides ViewTree extensions packaged for use by other core androidx libraries",
+      "website": "https://developer.android.com/jetpack/androidx/releases/core#1.0.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.cursoradapter:cursoradapter",
+      "artifactVersion": "1.0.0",
+      "name": "Support Cursor Adapter",
+      "description": "The Support Library is a static library that you can add to your Android application in order to use APIs that are either not available for older platform versions or utility APIs that aren't a part of the framework APIs. Compatible on devices running API 14 or later.",
+      "website": "http://developer.android.com/tools/extras/support-library.html",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.customview:customview",
+      "artifactVersion": "1.2.0",
+      "name": "Custom View",
+      "description": "The Support Library is a static library that you can add to your Android application in order to use APIs that are either not available for older platform versions or utility APIs that aren't a part of the framework APIs. Compatible on devices running API 14 or later.",
+      "website": "https://developer.android.com/jetpack/androidx/releases/customview#1.2.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.customview:customview-poolingcontainer",
+      "artifactVersion": "1.0.0",
+      "name": "androidx.customview:poolingcontainer",
+      "description": "Utilities for listening to the lifecycle of containers that manage their child Views' lifecycle, such as RecyclerView",
+      "website": "https://developer.android.com/jetpack/androidx/releases/customview#1.0.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.databinding:viewbinding",
+      "artifactVersion": "9.3.1",
+      "name": "androidx.databinding:viewbinding",
+      "description": "",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.drawerlayout:drawerlayout",
+      "artifactVersion": "1.1.1",
+      "name": "Support Drawer Layout",
+      "description": "The Support Library is a static library that you can add to your Android application in order to use APIs that are either not available for older platform versions or utility APIs that aren't a part of the framework APIs. Compatible on devices running API 14 or later.",
+      "website": "https://developer.android.com/jetpack/androidx",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.dynamicanimation:dynamicanimation",
+      "artifactVersion": "1.1.0",
+      "name": "DynamicAnimation",
+      "description": "Physics-based animation in support library, where the animations are driven by physics force. You can use this Animation library to create smooth and realistic animations.",
+      "website": "https://developer.android.com/jetpack/androidx/releases/dynamicanimation#1.1.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.emoji2:emoji2",
+      "artifactVersion": "1.3.0",
+      "name": "Android Emoji2 Compat",
+      "description": "Core library to enable emoji compatibility in Kitkat and newer devices to avoid the empty emoji characters.",
+      "website": "https://developer.android.com/jetpack/androidx/releases/emoji2#1.3.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.emoji2:emoji2-views-helper",
+      "artifactVersion": "1.3.0",
+      "name": "Android Emoji2 Compat view helpers",
+      "description": "View helpers for Emoji2",
+      "website": "https://developer.android.com/jetpack/androidx/releases/emoji2#1.3.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.exifinterface:exifinterface",
+      "artifactVersion": "1.3.7",
+      "name": "Support ExifInterface",
+      "description": "Android Support ExifInterface",
+      "website": "https://developer.android.com/jetpack/androidx/releases/exifinterface#1.3.7",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.fragment:fragment",
+      "artifactVersion": "1.6.2",
+      "name": "Support fragment",
+      "description": "The Support Library is a static library that you can add to your Android application in order to use APIs that are either not available for older platform versions or utility APIs that aren't a part of the framework APIs. Compatible on devices running API 14 or later.",
+      "website": "https://developer.android.com/jetpack/androidx/releases/fragment#1.6.2",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.fragment:fragment-ktx",
+      "artifactVersion": "1.6.2",
+      "name": "Fragment Kotlin Extensions",
+      "description": "Kotlin extensions for 'fragment' artifact",
+      "website": "https://developer.android.com/jetpack/androidx/releases/fragment#1.6.2",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.graphics:graphics-shapes-android",
+      "artifactVersion": "1.0.1",
+      "name": "Graphics Shapes",
+      "description": "create and render rounded polygonal shapes",
+      "website": "https://developer.android.com/jetpack/androidx/releases/graphics#1.0.1",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.interpolator:interpolator",
+      "artifactVersion": "1.0.0",
+      "name": "Support Interpolators",
+      "description": "The Support Library is a static library that you can add to your Android application in order to use APIs that are either not available for older platform versions or utility APIs that aren't a part of the framework APIs. Compatible on devices running API 14 or later.",
+      "website": "http://developer.android.com/tools/extras/support-library.html",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.lifecycle:lifecycle-common-java8",
+      "artifactVersion": "2.11.0",
+      "name": "Lifecycle-Common for Java 8",
+      "description": "Android Lifecycle-Common for Java 8 Language",
+      "website": "https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.lifecycle:lifecycle-common-jvm",
+      "artifactVersion": "2.11.0",
+      "name": "Lifecycle-Common",
+      "description": "Android Lifecycle-Common",
+      "website": "https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.lifecycle:lifecycle-livedata",
+      "artifactVersion": "2.11.0",
+      "name": "Lifecycle LiveData",
+      "description": "Android Lifecycle LiveData",
+      "website": "https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.lifecycle:lifecycle-livedata-core",
+      "artifactVersion": "2.11.0",
+      "name": "Lifecycle LiveData Core",
+      "description": "Android Lifecycle LiveData Core",
+      "website": "https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.lifecycle:lifecycle-livedata-core-ktx",
+      "artifactVersion": "2.11.0",
+      "name": "LiveData Core Kotlin Extensions",
+      "description": "Kotlin extensions for 'livedata-core' artifact",
+      "website": "https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.lifecycle:lifecycle-livedata-ktx",
+      "artifactVersion": "2.11.0",
+      "name": "LiveData Kotlin Extensions",
+      "description": "Kotlin extensions for 'livedata' artifact",
+      "website": "https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.lifecycle:lifecycle-process",
+      "artifactVersion": "2.11.0",
+      "name": "Lifecycle Process",
+      "description": "Android Lifecycle Process",
+      "website": "https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.lifecycle:lifecycle-runtime-android",
+      "artifactVersion": "2.11.0",
+      "name": "Lifecycle Runtime",
+      "description": "Android Lifecycle Runtime",
+      "website": "https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.lifecycle:lifecycle-runtime-ktx-android",
+      "artifactVersion": "2.11.0",
+      "name": "Lifecycle Kotlin Extensions",
+      "description": "Kotlin extensions for 'lifecycle' artifact",
+      "website": "https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.lifecycle:lifecycle-service",
+      "artifactVersion": "2.11.0",
+      "name": "Lifecycle Service",
+      "description": "Android Lifecycle Service",
+      "website": "https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.lifecycle:lifecycle-viewmodel-android",
+      "artifactVersion": "2.11.0",
+      "name": "Lifecycle ViewModel",
+      "description": "Android Lifecycle ViewModel",
+      "website": "https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.lifecycle:lifecycle-viewmodel-ktx",
+      "artifactVersion": "2.11.0",
+      "name": "Lifecycle ViewModel Kotlin Extensions",
+      "description": "Kotlin extensions for 'viewmodel' artifact",
+      "website": "https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.lifecycle:lifecycle-viewmodel-savedstate-android",
+      "artifactVersion": "2.11.0",
+      "name": "Lifecycle ViewModel with SavedState",
+      "description": "Android Lifecycle ViewModel",
+      "website": "https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.loader:loader",
+      "artifactVersion": "1.0.0",
+      "name": "Support loader",
+      "description": "The Support Library is a static library that you can add to your Android application in order to use APIs that are either not available for older platform versions or utility APIs that aren't a part of the framework APIs. Compatible on devices running API 14 or later.",
+      "website": "http://developer.android.com/tools/extras/support-library.html",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.navigation:navigation-common-android",
+      "artifactVersion": "2.9.8",
+      "name": "Navigation Common",
+      "description": "Android Navigation-Common",
+      "website": "https://developer.android.com/jetpack/androidx/releases/navigation#2.9.8",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.navigation:navigation-fragment",
+      "artifactVersion": "2.9.8",
+      "name": "Navigation Fragment",
+      "description": "Android Navigation-Fragment",
+      "website": "https://developer.android.com/jetpack/androidx/releases/navigation#2.9.8",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.navigation:navigation-fragment-ktx",
+      "artifactVersion": "2.9.8",
+      "name": "Navigation Fragment Kotlin Extensions",
+      "description": "Android Navigation-Fragment-Ktx",
+      "website": "https://developer.android.com/jetpack/androidx/releases/navigation#2.9.8",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.navigation:navigation-runtime-android",
+      "artifactVersion": "2.9.8",
+      "name": "Navigation Runtime",
+      "description": "Android Navigation-Runtime",
+      "website": "https://developer.android.com/jetpack/androidx/releases/navigation#2.9.8",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.navigation:navigation-ui",
+      "artifactVersion": "2.9.8",
+      "name": "Navigation UI",
+      "description": "Android Navigation-UI",
+      "website": "https://developer.android.com/jetpack/androidx/releases/navigation#2.9.8",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.navigation:navigation-ui-ktx",
+      "artifactVersion": "2.9.8",
+      "name": "Navigation UI Kotlin Extensions",
+      "description": "Android Navigation-UI-Ktx",
+      "website": "https://developer.android.com/jetpack/androidx/releases/navigation#2.9.8",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.navigationevent:navigationevent-android",
+      "artifactVersion": "1.0.0",
+      "name": "Navigation Event",
+      "description": "Provides APIs to easily intercept platform navigation events, including swipes and clicks, to provide a consistent API surface for handling these events.",
+      "website": "https://developer.android.com/jetpack/androidx/releases/navigationevent#1.0.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.paging:paging-common-android",
+      "artifactVersion": "3.5.0",
+      "name": "Paging-Common",
+      "description": "Android Paging-Common",
+      "website": "https://developer.android.com/jetpack/androidx/releases/paging#3.5.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.paging:paging-common-ktx",
+      "artifactVersion": "3.5.0",
+      "name": "Paging-Common Kotlin Extensions",
+      "description": "Kotlin extensions for 'paging-common' artifact",
+      "website": "https://developer.android.com/jetpack/androidx/releases/paging#3.5.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.paging:paging-runtime",
+      "artifactVersion": "3.5.0",
+      "name": "Paging-Runtime",
+      "description": "Android Paging-Runtime",
+      "website": "https://developer.android.com/jetpack/androidx/releases/paging#3.5.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.paging:paging-runtime-ktx",
+      "artifactVersion": "3.5.0",
+      "name": "Paging-Runtime Kotlin Extensions",
+      "description": "Kotlin extensions for 'paging-runtime' artifact",
+      "website": "https://developer.android.com/jetpack/androidx/releases/paging#3.5.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.preference:preference",
+      "artifactVersion": "1.2.1",
+      "name": "AndroidX Preference",
+      "description": "AndroidX Preference",
+      "website": "https://developer.android.com/jetpack/androidx/releases/preference#1.2.1",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.preference:preference-ktx",
+      "artifactVersion": "1.2.1",
+      "name": "Android Preferences KTX",
+      "description": "Kotlin extensions for preferences",
+      "website": "https://developer.android.com/jetpack/androidx/releases/preference#1.2.1",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.recyclerview:recyclerview",
+      "artifactVersion": "1.4.0",
+      "name": "RecyclerView",
+      "description": "Android Support RecyclerView",
+      "website": "https://developer.android.com/jetpack/androidx/releases/recyclerview#1.4.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.resourceinspection:resourceinspection-annotation",
+      "artifactVersion": "1.0.1",
+      "name": "Android Resource Inspection - Annotations",
+      "description": "Annotation processors for Android resource and layout inspection",
+      "website": "https://developer.android.com/jetpack/androidx/releases/resourceinspection#1.0.1",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.room:room-common-jvm",
+      "artifactVersion": "2.8.4",
+      "name": "Room-Common",
+      "description": "Android Room-Common",
+      "website": "https://developer.android.com/jetpack/androidx/releases/room#2.8.4",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.room:room-ktx",
+      "artifactVersion": "2.8.4",
+      "name": "Room Kotlin Extensions",
+      "description": "Android Room Kotlin Extensions",
+      "website": "https://developer.android.com/jetpack/androidx/releases/room#2.8.4",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.room:room-paging-android",
+      "artifactVersion": "2.8.4",
+      "name": "Room Paging",
+      "description": "Room Paging integration",
+      "website": "https://developer.android.com/jetpack/androidx/releases/room#2.8.4",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.room:room-runtime-android",
+      "artifactVersion": "2.8.4",
+      "name": "Room-Runtime",
+      "description": "Android Room-Runtime",
+      "website": "https://developer.android.com/jetpack/androidx/releases/room#2.8.4",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.savedstate:savedstate-android",
+      "artifactVersion": "1.4.0",
+      "name": "Saved State",
+      "description": "Android Lifecycle Saved State",
+      "website": "https://developer.android.com/jetpack/androidx/releases/savedstate#1.4.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.savedstate:savedstate-ktx",
+      "artifactVersion": "1.4.0",
+      "name": "SavedState Kotlin Extensions",
+      "description": "Kotlin extensions for 'savedstate' artifact",
+      "website": "https://developer.android.com/jetpack/androidx/releases/savedstate#1.4.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.slidingpanelayout:slidingpanelayout",
+      "artifactVersion": "1.2.0",
+      "name": "Support Sliding Pane Layout",
+      "description": "SlidingPaneLayout offers a responsive, two pane layout that automatically switches between overlapping panes on smaller devices to a side by side view on larger devices.",
+      "website": "https://developer.android.com/jetpack/androidx/releases/slidingpanelayout#1.2.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.sqlite:sqlite-android",
+      "artifactVersion": "2.6.2",
+      "name": "SQLite",
+      "description": "SQLite API",
+      "website": "https://developer.android.com/jetpack/androidx/releases/sqlite#2.6.2",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.sqlite:sqlite-framework-android",
+      "artifactVersion": "2.6.2",
+      "name": "SQLite Framework Integration",
+      "description": "The implementation of SQLite library using the framework code.",
+      "website": "https://developer.android.com/jetpack/androidx/releases/sqlite#2.6.2",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.startup:startup-runtime",
+      "artifactVersion": "1.2.0",
+      "name": "Startup Runtime",
+      "description": "Android App Startup Runtime",
+      "website": "https://developer.android.com/jetpack/androidx/releases/startup#1.2.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.tracing:tracing",
+      "artifactVersion": "1.2.0",
+      "name": "Android Tracing",
+      "description": "Android Tracing",
+      "website": "https://developer.android.com/jetpack/androidx/releases/tracing#1.2.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.transition:transition",
+      "artifactVersion": "1.5.0",
+      "name": "Transition",
+      "description": "Android Transition Support Library",
+      "website": "https://developer.android.com/jetpack/androidx/releases/transition#1.5.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.vectordrawable:vectordrawable",
+      "artifactVersion": "1.1.0",
+      "name": "Support VectorDrawable",
+      "description": "Android Support VectorDrawable",
+      "website": "https://developer.android.com/jetpack/androidx",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.vectordrawable:vectordrawable-animated",
+      "artifactVersion": "1.1.0",
+      "name": "Support AnimatedVectorDrawable",
+      "description": "Android Support AnimatedVectorDrawable",
+      "website": "https://developer.android.com/jetpack/androidx",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.versionedparcelable:versionedparcelable",
+      "artifactVersion": "1.1.1",
+      "name": "VersionedParcelable",
+      "description": "Provides a stable but relatively compact binary serialization format that can be passed across processes or persisted safely.",
+      "website": "http://developer.android.com/tools/extras/support-library.html",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.viewpager2:viewpager2",
+      "artifactVersion": "1.1.0",
+      "name": "ViewPager2",
+      "description": "AndroidX Widget ViewPager2",
+      "website": "https://developer.android.com/jetpack/androidx/releases/viewpager2#1.1.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.viewpager:viewpager",
+      "artifactVersion": "1.0.0",
+      "name": "Support View Pager",
+      "description": "The Support Library is a static library that you can add to your Android application in order to use APIs that are either not available for older platform versions or utility APIs that aren't a part of the framework APIs. Compatible on devices running API 14 or later.",
+      "website": "http://developer.android.com/tools/extras/support-library.html",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "androidx.window:window",
+      "artifactVersion": "1.0.0",
+      "name": "Jetpack WindowManager Library",
+      "description": "WindowManager Jetpack library. Currently only provides additional functionality on foldable devices.",
+      "website": "https://developer.android.com/jetpack/androidx/releases/window#1.0.0",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "boostorg/boost",
+      "artifactVersion": "1.90.0",
+      "name": "boostorg/boost",
+      "description": "Free peer-reviewed portable C++ source libraries",
+      "website": "https://www.boost.org/",
+      "licenses": [
+        "BSL-1.0"
+      ],
+      "tag": "native"
+    },
+    {
+      "uniqueId": "com.google.android.flexbox:flexbox",
+      "artifactVersion": "3.0.0",
+      "name": "flexbox-layout",
+      "description": "Flexbox for Android",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "com.google.android.material:material",
+      "artifactVersion": "1.14.0",
+      "name": "Material Components for Android",
+      "description": "Material Components for Android is a static library that you can add to your Android application in order to use APIs that provide implementations of the Material Design specification. Compatible on devices running API 23 or later.",
+      "website": "https://github.com/material-components/material-components-android",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "com.google.errorprone:error_prone_annotations",
+      "artifactVersion": "2.15.0",
+      "name": "error-prone annotations",
+      "description": "Error Prone is a static analysis tool for Java that catches common programming mistakes at compile-time.",
+      "website": "https://errorprone.info/error_prone_annotations",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "com.google.guava:listenablefuture",
+      "artifactVersion": "1.0",
+      "name": "Guava ListenableFuture only",
+      "description": "Contains Guava's com.google.common.util.concurrent.ListenableFuture class,\n    without any of its other classes -- but is also available in a second\n    \"version\" that omits the class to avoid conflicts with the copy in Guava\n    itself. The idea is:\n\n    - If users want only ListenableFuture, they depend on listenablefuture-1.0.\n\n    - If users want all of Guava, they depend on guava, which, as of Guava\n    27.0, depends on\n    listenablefuture-9999.0-empty-to-avoid-conflict-with-guava. The 9999.0-...\n    version number is enough for some build systems (notably, Gradle) to select\n    that empty artifact over the \"real\" listenablefuture-1.0 -- avoiding a\n    conflict with the copy of ListenableFuture in guava itself. If users are\n    using an older version of Guava or a build system other than Gradle, they\n    may see class conflicts. If so, they can solve them by manually excluding\n    the listenablefuture artifact or manually forcing their build systems to\n    use 9999.0-....",
+      "website": "https://github.com/google/guava/listenablefuture",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "com.jakewharton.timber:timber",
+      "artifactVersion": "5.0.1",
+      "name": "Timber",
+      "description": "No-nonsense injectable logging.",
+      "website": "https://github.com/JakeWharton/timber",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "com.louiscad.splitties:splitties-bitflags-jvm",
+      "artifactVersion": "3.0.0",
+      "name": "splitties-bitflags",
+      "description": "A collection of light, general purpose Android libraries in Kotlin.",
+      "website": "https://github.com/LouisCAD/Splitties",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "com.louiscad.splitties:splitties-collections-jvm",
+      "artifactVersion": "3.0.0",
+      "name": "splitties-collections",
+      "description": "A collection of light, general purpose Android libraries in Kotlin.",
+      "website": "https://github.com/LouisCAD/Splitties",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "com.louiscad.splitties:splitties-experimental-jvm",
+      "artifactVersion": "3.0.0",
+      "name": "splitties-experimental",
+      "description": "A collection of light, general purpose Android libraries in Kotlin.",
+      "website": "https://github.com/LouisCAD/Splitties",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "com.mikepenz:aboutlibraries-core-android",
+      "artifactVersion": "14.2.1",
+      "name": "AboutLibraries Core Library",
+      "description": "AboutLibraries automatically detects all dependencies of a project and collects their information including the license. Optionally visualising it via the provided ui components.",
+      "website": "https://github.com/mikepenz/AboutLibraries",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "com.vanniktech:android-image-cropper",
+      "artifactVersion": "4.7.0",
+      "name": "AndroidImageCropper",
+      "description": "Image Cropping Library for Android, optimised for Camera / Gallery.",
+      "website": "https://github.com/CanHub/Android-Image-Cropper",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "facebook/zstd",
+      "artifactVersion": "1.5.7",
+      "name": "facebook/zstd",
+      "description": "Zstandard - Fast real-time compression algorithm",
+      "website": "https://www.zstd.net",
+      "licenses": [
+        "BSD-3-Clause",
+        "GPL-2.0-only"
+      ],
+      "tag": "native"
+    },
+    {
+      "uniqueId": "fcitx/fcitx5",
+      "artifactVersion": "5.1.21",
+      "name": "fcitx/fcitx5",
+      "description": "Next generation of fcitx",
+      "website": "https://github.com/fcitx/fcitx5",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "tag": "native"
+    },
+    {
+      "uniqueId": "fcitx/fcitx5-chinese-addons",
+      "artifactVersion": "5.1.13",
+      "name": "fcitx/fcitx5-chinese-addons",
+      "description": "Chinese related addon for fcitx5",
+      "website": "https://github.com/fcitx/fcitx5-chinese-addons",
+      "licenses": [
+        "GPL-2.0-or-later",
+        "LGPL-2.1-or-later"
+      ],
+      "tag": "native"
+    },
+    {
+      "uniqueId": "fcitx/fcitx5-lua",
+      "artifactVersion": "5.0.17",
+      "name": "fcitx/fcitx5-lua",
+      "description": "Lua support for fcitx5",
+      "website": "https://github.com/fcitx/fcitx5-lua",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "tag": "native"
+    },
+    {
+      "uniqueId": "fcitx/libime",
+      "artifactVersion": "1.1.15",
+      "name": "fcitx/libime",
+      "description": "library to support generic input method implementation",
+      "website": "https://github.com/fcitx/libime",
+      "licenses": [
+        "LGPL-2.1-or-later"
+      ],
+      "tag": "native"
+    },
+    {
+      "uniqueId": "io.arrow-kt:arrow-annotations-android",
+      "artifactVersion": "2.2.3",
+      "name": "Arrow Annotations",
+      "description": "The perfect companion for your Kotlin journey",
+      "website": "https://arrow-kt.io/",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "io.arrow-kt:arrow-atomic-android",
+      "artifactVersion": "2.2.3",
+      "name": "Arrow Atomic",
+      "description": "The perfect companion for your Kotlin journey",
+      "website": "https://arrow-kt.io/",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "io.arrow-kt:arrow-core-android",
+      "artifactVersion": "2.2.3",
+      "name": "Arrow Core",
+      "description": "The perfect companion for your Kotlin journey",
+      "website": "https://arrow-kt.io/",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "io.arrow-kt:arrow-exception-utils-android",
+      "artifactVersion": "2.2.3",
+      "name": "Arrow Exception Utilities",
+      "description": "The perfect companion for your Kotlin journey",
+      "website": "https://arrow-kt.io/",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "io.arrow-kt:arrow-functions-android",
+      "artifactVersion": "2.2.3",
+      "name": "Arrow Functions",
+      "description": "The perfect companion for your Kotlin journey",
+      "website": "https://arrow-kt.io/",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "j-jorge/libintl-lite",
+      "artifactVersion": "edbb306",
+      "name": "j-jorge/libintl-lite",
+      "description": "simple (but less powerful) GNU gettext libintl replacement",
+      "website": "https://github.com/j-jorge/libintl-lite",
+      "licenses": [
+        "BSL-1.0"
+      ],
+      "tag": "native"
+    },
+    {
+      "uniqueId": "libuv/libuv",
+      "artifactVersion": "1.52.0",
+      "name": "libuv/libuv",
+      "description": "Cross-platform asynchronous I/O",
+      "website": "https://libuv.org/",
+      "licenses": [
+        "MIT"
+      ],
+      "tag": "native"
+    },
+    {
+      "uniqueId": "lua/lua",
+      "artifactVersion": "5.4.7",
+      "name": "lua/lua",
+      "description": "Powerful lightweight programming language designed for extending applications",
+      "website": "https://www.lua.org/",
+      "licenses": [
+        "MIT"
+      ],
+      "tag": "native"
+    },
+    {
+      "uniqueId": "org.jetbrains.kotlin:kotlin-parcelize-runtime",
+      "artifactVersion": "2.4.10",
+      "name": "Parcelize Runtime",
+      "description": "Runtime library for the Parcelize compiler plugin",
+      "website": "https://kotlinlang.org/",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "org.jetbrains.kotlin:kotlin-reflect",
+      "artifactVersion": "1.8.22",
+      "name": "Kotlin Reflect",
+      "description": "Kotlin Full Reflection Library",
+      "website": "https://kotlinlang.org/",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "org.jetbrains.kotlin:kotlin-stdlib",
+      "artifactVersion": "2.4.10",
+      "name": "Kotlin Stdlib",
+      "description": "Kotlin Standard Library",
+      "website": "https://kotlinlang.org/",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "org.jetbrains.kotlin:kotlin-stdlib-common",
+      "artifactVersion": "2.4.10",
+      "name": "Kotlin Stdlib Common",
+      "description": "Kotlin Common Standard Library (legacy, use kotlin-stdlib instead)",
+      "website": "https://kotlinlang.org/",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "org.jetbrains.kotlin:kotlin-stdlib-jdk7",
+      "artifactVersion": "1.8.0",
+      "name": "Kotlin Stdlib Jdk7",
+      "description": "Kotlin Standard Library JDK 7 extension",
+      "website": "https://kotlinlang.org/",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "org.jetbrains.kotlin:kotlin-stdlib-jdk8",
+      "artifactVersion": "1.8.0",
+      "name": "Kotlin Stdlib Jdk8",
+      "description": "Kotlin Standard Library JDK 8 extension",
+      "website": "https://kotlinlang.org/",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "org.jetbrains.kotlinx:kotlinx-coroutines-android",
+      "artifactVersion": "1.11.0",
+      "name": "kotlinx-coroutines-android",
+      "description": "Coroutines support libraries for Kotlin",
+      "website": "https://github.com/Kotlin/kotlinx.coroutines",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm",
+      "artifactVersion": "1.11.0",
+      "name": "kotlinx-coroutines-core",
+      "description": "Coroutines support libraries for Kotlin",
+      "website": "https://github.com/Kotlin/kotlinx.coroutines",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "org.jetbrains.kotlinx:kotlinx-serialization-core-jvm",
+      "artifactVersion": "1.11.0",
+      "name": "kotlinx-serialization-core",
+      "description": "Kotlin multiplatform serialization runtime library",
+      "website": "https://github.com/Kotlin/kotlinx.serialization",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "org.jetbrains.kotlinx:kotlinx-serialization-json-jvm",
+      "artifactVersion": "1.11.0",
+      "name": "kotlinx-serialization-json",
+      "description": "Kotlin multiplatform serialization runtime library",
+      "website": "https://github.com/Kotlin/kotlinx.serialization",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "org.jetbrains:annotations",
+      "artifactVersion": "23.0.0",
+      "name": "JetBrains Java Annotations",
+      "description": "A set of annotations used for code inspection support and code documentation.",
+      "website": "https://github.com/JetBrains/java-annotations",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "org.jspecify:jspecify",
+      "artifactVersion": "1.0.0",
+      "name": "JSpecify annotations",
+      "description": "An artifact of well-named and well-specified annotations to power static analysis checks",
+      "website": "http://jspecify.org/",
+      "licenses": [
+        "Apache-2.0"
+      ]
+    },
+    {
+      "uniqueId": "org.mechdancer:dependency",
+      "artifactVersion": "0.1.2",
+      "name": "Dependency",
+      "description": "A lightweight dependency injection library",
+      "website": "https://github.com/MechDancer/dependency",
+      "licenses": [
+        "WTFPL"
+      ]
+    }
+  ],
+  "licenses": {
+    "Apache-2.0": {
+      "name": "Apache License 2.0",
+      "url": "https://spdx.org/licenses/Apache-2.0.html",
+      "internalHash": "Apache-2.0",
+      "spdxId": "Apache-2.0",
+      "hash": "Apache-2.0"
+    },
+    "BSD-3-Clause": {
+      "name": "BSD 3-Clause \"New\" or \"Revised\" License",
+      "url": "https://spdx.org/licenses/BSD-3-Clause.html",
+      "spdxId": "BSD-3-Clause",
+      "hash": "556df48f39c3db898dbf33de8830d4ec"
+    },
+    "BSL-1.0": {
+      "name": "Boost Software License 1.0",
+      "url": "https://spdx.org/licenses/BSL-1.0.html",
+      "spdxId": "BSL-1.0",
+      "hash": "e01e99a4c2cdfc15aea6d8e733f89605"
+    },
+    "GPL-2.0-only": {
+      "name": "GNU General Public License v2.0 only",
+      "url": "https://spdx.org/licenses/GPL-2.0-only.html",
+      "spdxId": "GPL-2.0-only",
+      "hash": "1671b5df8933e6235604d6a2f2180cad"
+    },
+    "GPL-2.0-or-later": {
+      "name": "GNU General Public License v2.0 or later",
+      "url": "https://spdx.org/licenses/GPL-2.0-or-later.html",
+      "spdxId": "GPL-2.0-or-later",
+      "hash": "f736460b6c76fc6fbf19d47c576c244a"
+    },
+    "LGPL-2.1-or-later": {
+      "name": "GNU Lesser General Public License v2.1 or later",
+      "url": "https://spdx.org/licenses/LGPL-2.1-or-later.html",
+      "spdxId": "LGPL-2.1-or-later",
+      "hash": "a7843d4bbc838f98f885e18feb6db373"
+    },
+    "MIT": {
+      "name": "MIT License",
+      "url": "https://spdx.org/licenses/MIT.html",
+      "spdxId": "MIT",
+      "hash": "abe209a63fe4cca9e1dbc4335d9a8ad0"
+    },
+    "WTFPL": {
+      "name": "Do What The F*ck You Want To Public License",
+      "url": "https://spdx.org/licenses/WTFPL.html",
+      "internalHash": "WTFPL",
+      "spdxId": "WTFPL",
+      "hash": "WTFPL"
+    }
+  }
+}

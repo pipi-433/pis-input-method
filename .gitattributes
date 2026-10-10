@@ -1,0 +1,8 @@
+# Preserve original license texts and checksum-pinned resource bytes.
+LICENSE -text
+NOTICE -text
+LICENSES/** -text
+app/src/main/assets/pis-licenses/** -text
+app/src/main/assets/pis-input/** -text
+app/src/main/assets/voice/** -text
+app/src/main/res/drawable/pis_legacy_*.xml -text

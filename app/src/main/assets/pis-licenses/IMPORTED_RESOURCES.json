@@ -1,0 +1,16 @@
+{
+  "icons": [
+    {
+      "icon": "clipboard",
+      "file": "pis_legacy_clipboard.xml"
+    },
+    {
+      "icon": "mic",
+      "file": "pis_legacy_mic.xml"
+    },
+    {
+      "icon": "translate",
+      "file": "pis_legacy_translate.xml"
+    }
+  ]
+}

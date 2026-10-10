@@ -1,0 +1,486 @@
+/*
+ * SPDX-License-Identifier: LGPL-2.1-or-later
+ * SPDX-FileCopyrightText: Copyright 2021-2025 Fcitx5 for Android Contributors
+ */
+
+package org.fcitx.fcitx5.android.input
+
+import android.annotation.SuppressLint
+import android.content.res.Configuration
+import android.graphics.Point
+import android.os.Build
+import android.view.View
+import android.view.WindowInsets
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InlineSuggestionsResponse
+import android.widget.ImageView
+import android.widget.HorizontalScrollView
+import android.widget.TextView
+import android.view.Gravity
+import androidx.annotation.Keep
+import androidx.annotation.RequiresApi
+import androidx.core.view.updateLayoutParams
+import org.fcitx.fcitx5.android.core.CapabilityFlags
+import org.fcitx.fcitx5.android.core.FcitxEvent
+import org.fcitx.fcitx5.android.daemon.FcitxConnection
+import org.fcitx.fcitx5.android.daemon.launchOnReady
+import org.fcitx.fcitx5.android.data.prefs.AppPrefs
+import org.fcitx.fcitx5.android.data.prefs.ManagedPreferenceProvider
+import org.fcitx.fcitx5.android.data.theme.Theme
+import org.fcitx.fcitx5.android.data.theme.ThemeManager
+import org.fcitx.fcitx5.android.input.bar.KawaiiBarComponent
+import org.fcitx.fcitx5.android.input.broadcast.InputBroadcaster
+import org.fcitx.fcitx5.android.input.broadcast.PreeditEmptyStateComponent
+import org.fcitx.fcitx5.android.input.broadcast.PunctuationComponent
+import org.fcitx.fcitx5.android.input.broadcast.ReturnKeyDrawableComponent
+import org.fcitx.fcitx5.android.input.candidates.horizontal.HorizontalCandidateComponent
+import org.fcitx.fcitx5.android.input.keyboard.CommonKeyActionListener
+import org.fcitx.fcitx5.android.input.keyboard.KeyboardHeightPercentBase.DisplayMetrics
+import org.fcitx.fcitx5.android.input.keyboard.KeyboardHeightPercentBase.RealSize
+import org.fcitx.fcitx5.android.input.keyboard.KeyboardWindow
+import org.fcitx.fcitx5.android.input.picker.emojiPicker
+import org.fcitx.fcitx5.android.input.picker.emoticonPicker
+import org.fcitx.fcitx5.android.input.picker.symbolPicker
+import org.fcitx.fcitx5.android.input.popup.PopupComponent
+import org.fcitx.fcitx5.android.input.preedit.PreeditComponent
+import org.fcitx.fcitx5.android.input.wm.InputWindowManager
+import org.fcitx.fcitx5.android.utils.unset
+import org.fcitx.fcitx5.android.utils.windowManager
+import org.mechdancer.dependency.DynamicScope
+import org.mechdancer.dependency.manager.wrapToUniqueComponent
+import org.mechdancer.dependency.plusAssign
+import splitties.dimensions.dp
+import splitties.views.dsl.constraintlayout.above
+import splitties.views.dsl.constraintlayout.below
+import splitties.views.dsl.constraintlayout.bottomOfParent
+import splitties.views.dsl.constraintlayout.centerHorizontally
+import splitties.views.dsl.constraintlayout.centerVertically
+import splitties.views.dsl.constraintlayout.constraintLayout
+import splitties.views.dsl.constraintlayout.endOfParent
+import splitties.views.dsl.constraintlayout.endToStartOf
+import splitties.views.dsl.constraintlayout.lParams
+import splitties.views.dsl.constraintlayout.startOfParent
+import splitties.views.dsl.constraintlayout.startToEndOf
+import splitties.views.dsl.constraintlayout.topOfParent
+import splitties.views.dsl.core.add
+import splitties.views.dsl.core.imageView
+import splitties.views.dsl.core.matchParent
+import splitties.views.dsl.core.view
+import splitties.views.dsl.core.wrapContent
+import splitties.views.imageDrawable
+import timber.log.Timber
+
+@SuppressLint("ViewConstructor")
+class InputView(
+    service: FcitxInputMethodService,
+    fcitx: FcitxConnection,
+    theme: Theme
+) : BaseInputView(service, fcitx, theme) {
+
+    private val keyBorder by ThemeManager.prefs.keyBorder
+
+    private val customBackground = imageView {
+        scaleType = ImageView.ScaleType.CENTER_CROP
+    }
+
+    private val placeholderOnClickListener = OnClickListener { }
+
+    // use clickable view as padding, so MotionEvent can be split to padding view and keyboard view
+    private val leftPaddingSpace = view(::View) {
+        setOnClickListener(placeholderOnClickListener)
+    }
+    private val rightPaddingSpace = view(::View) {
+        setOnClickListener(placeholderOnClickListener)
+    }
+    private val bottomPaddingSpace = view(::View) {
+        // height as keyboardBottomPadding
+        // bottomMargin as WindowInsets (Navigation Bar) offset
+        setOnClickListener(placeholderOnClickListener)
+    }
+
+    private val scope = DynamicScope()
+    private val broadcaster = InputBroadcaster()
+    private val popup = PopupComponent()
+    private val punctuation = PunctuationComponent()
+    private val returnKeyDrawable = ReturnKeyDrawableComponent()
+    private val preeditEmptyState = PreeditEmptyStateComponent()
+    private val preedit = PreeditComponent()
+    private val commonKeyActionListener = CommonKeyActionListener()
+    private val windowManager = InputWindowManager()
+    private val kawaiiBar = KawaiiBarComponent()
+    private val horizontalCandidate = HorizontalCandidateComponent()
+    private val pisFeedback = org.fcitx.fcitx5.android.pis.feedback.PisFeedbackView(context, theme)
+    private var feedbackLanguage: Boolean? = null
+    fun showPisFeedback(event: org.fcitx.fcitx5.android.pis.feedback.PisFeedbackEvent) = pisFeedback.accept(event)
+    private val pisTranslationText = TextView(context).apply {
+        setTextColor(theme.candidateTextColor)
+        textSize = 18f
+        gravity = Gravity.CENTER_VERTICAL
+        setSingleLine(true)
+        setPadding(dp(12), dp(8), dp(12), 0)
+    }
+    private val pisTranslationStrip = HorizontalScrollView(context).apply {
+        visibility = GONE
+        isHorizontalScrollBarEnabled = false
+        setBackgroundColor(theme.barColor)
+        addView(pisTranslationText, android.widget.FrameLayout.LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.MATCH_PARENT))
+    }
+    fun showPisTranslation(text: String?, apply: (() -> Unit)?) {
+        pisTranslationText.text = text.orEmpty()
+        pisTranslationText.isClickable = apply != null
+        pisTranslationText.setOnClickListener(if (apply == null) null else OnClickListener { apply() })
+        pisTranslationStrip.visibility = if (text == null) GONE else VISIBLE
+        if (text != null) pisTranslationStrip.scrollTo(0, 0)
+    }
+    fun openPisClipboard() { windowManager.attachWindow(org.fcitx.fcitx5.android.input.clipboard.ClipboardWindow()) }
+    private val pisVoiceItems = android.widget.LinearLayout(context).apply { orientation = android.widget.LinearLayout.HORIZONTAL }
+    private val pisVoiceStrip = HorizontalScrollView(context).apply {
+        visibility = GONE; isHorizontalScrollBarEnabled = false; setBackgroundColor(theme.barColor)
+        addView(pisVoiceItems, android.widget.FrameLayout.LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.MATCH_PARENT))
+    }
+    fun showPisVoice(label: String?, items: List<org.fcitx.fcitx5.android.pis.voice.VoicePostProcessor.Candidate>,
+                     pick: ((Int) -> Unit)?, cancel: (() -> Unit)?) {
+        pisVoiceItems.removeAllViews()
+        fun chip(text: String, click: (() -> Unit)?) {
+            val view = TextView(context).apply {
+                this.text = text; textSize = 18f; gravity = Gravity.CENTER_VERTICAL
+                setTextColor(theme.candidateTextColor); setPadding(dp(12), dp(8), dp(12), 0); setSingleLine(true)
+                if (click != null) setOnClickListener { click() }
+            }
+            pisVoiceItems.addView(view, android.widget.LinearLayout.LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.MATCH_PARENT))
+        }
+        if (label != null) chip(label, null)
+        items.forEachIndexed { index, item -> chip(item.text, { pick?.invoke(index) }) }
+        if (cancel != null) chip("取消", cancel)
+        pisVoiceStrip.visibility = if (label != null || items.isNotEmpty()) VISIBLE else GONE
+    }
+    private val pisOutputBar = android.widget.FrameLayout(context).apply {
+        id = View.generateViewId()
+        background = android.graphics.drawable.GradientDrawable().apply {
+            setColor(theme.barColor)
+            cornerRadius = dp(12).toFloat()
+        }
+        clipToOutline = true
+        foreground = org.fcitx.fcitx5.android.pis.PisGlassBarDrawable(
+            dp(12).toFloat(), resources.displayMetrics.density, theme.isDark)
+    }
+    private val keyboardWindow = KeyboardWindow()
+    private val symbolPicker = symbolPicker()
+    private val emojiPicker = emojiPicker()
+    private val emoticonPicker = emoticonPicker()
+
+    private fun setupScope() {
+        scope += this@InputView.wrapToUniqueComponent()
+        scope += service.wrapToUniqueComponent()
+        scope += fcitx.wrapToUniqueComponent()
+        scope += theme.wrapToUniqueComponent()
+        scope += themedContext.wrapToUniqueComponent()
+        scope += broadcaster
+        scope += popup
+        scope += punctuation
+        scope += returnKeyDrawable
+        scope += preeditEmptyState
+        scope += preedit
+        scope += commonKeyActionListener
+        scope += windowManager
+        scope += kawaiiBar
+        scope += horizontalCandidate
+        broadcaster.onScopeSetupFinished(scope)
+    }
+
+    private val keyboardPrefs = AppPrefs.getInstance().keyboard
+
+    private val focusChangeResetKeyboard by keyboardPrefs.focusChangeResetKeyboard
+
+    private val keyboardHeightPercent = keyboardPrefs.keyboardHeightPercent
+    private val keyboardHeightPercentLandscape = keyboardPrefs.keyboardHeightPercentLandscape
+    private val keyboardSidePadding = keyboardPrefs.keyboardSidePadding
+    private val keyboardSidePaddingLandscape = keyboardPrefs.keyboardSidePaddingLandscape
+    private val keyboardBottomPadding = keyboardPrefs.keyboardBottomPadding
+    private val keyboardBottomPaddingLandscape = keyboardPrefs.keyboardBottomPaddingLandscape
+
+    private val advancedPrefs = AppPrefs.getInstance().advanced
+    private val keyboardHeightPercentBase = advancedPrefs.keyboardHeightPercentBase
+
+    private val keyboardSizePrefs = listOf(
+        keyboardHeightPercent,
+        keyboardHeightPercentLandscape,
+        keyboardSidePadding,
+        keyboardSidePaddingLandscape,
+        keyboardBottomPadding,
+        keyboardBottomPaddingLandscape,
+        keyboardHeightPercentBase,
+    )
+
+    private val keyboardHeightPx: Int
+        get() {
+            val baseType = keyboardHeightPercentBase.getValue()
+            val base = when (baseType) {
+                DisplayMetrics -> resources.displayMetrics.heightPixels
+                RealSize -> Point().also {
+                    @Suppress("DEPRECATION")
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                        context.display
+                    } else {
+                        context.windowManager.defaultDisplay
+                    }.getRealSize(it)
+                }.y
+            }
+            val percent = when (resources.configuration.orientation) {
+                Configuration.ORIENTATION_LANDSCAPE -> keyboardHeightPercentLandscape
+                else -> keyboardHeightPercent
+            }.getValue()
+            Timber.d("keyboardHeightPx get(): baseType=${baseType}, base=${base}, percent=${percent}")
+            return base * percent / 100
+        }
+
+    private val keyboardSidePaddingPx: Int
+        get() {
+            val value = when (resources.configuration.orientation) {
+                Configuration.ORIENTATION_LANDSCAPE -> keyboardSidePaddingLandscape
+                else -> keyboardSidePadding
+            }.getValue()
+            return dp(value)
+        }
+
+    private val keyboardBottomPaddingPx: Int
+        get() {
+            val value = when (resources.configuration.orientation) {
+                Configuration.ORIENTATION_LANDSCAPE -> keyboardBottomPaddingLandscape
+                else -> keyboardBottomPadding
+            }.getValue()
+            return dp(value)
+        }
+
+    @Keep
+    private val onKeyboardSizeChangeListener = ManagedPreferenceProvider.OnChangeListener { key ->
+        if (keyboardSizePrefs.any { it.key == key }) {
+            updateKeyboardSize()
+        }
+    }
+
+    val keyboardView: View
+
+    init {
+        // MUST call before any operation
+        setupScope()
+        pisFeedback.apply {
+            importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
+            isFocusable = true
+            contentDescription = "展开或收起候选；未输入时收起键盘"
+            setOnClickListener {
+                accept(org.fcitx.fcitx5.android.pis.feedback.PisFeedbackEvent.Pulse(
+                    org.fcitx.fcitx5.android.pis.feedback.PisFeedbackEvent.Kind.Confirm))
+                kawaiiBar.onPisFeedbackClick()
+            }
+        }
+
+        // restore punctuation mapping in case of InputView recreation
+        fcitx.launchOnReady {
+            punctuation.updatePunctuationMapping(it.statusAreaActionsCached)
+        }
+
+        // make sure KeyboardWindow's view has been created before it receives any broadcast
+        windowManager.addEssentialWindow(keyboardWindow, createView = true)
+        windowManager.addEssentialWindow(symbolPicker)
+        windowManager.addEssentialWindow(emojiPicker)
+        windowManager.addEssentialWindow(emoticonPicker)
+        // show KeyboardWindow by default
+        windowManager.attachWindow(KeyboardWindow)
+
+        broadcaster.onImeUpdate(fcitx.runImmediately { inputMethodEntryCached })
+
+        customBackground.imageDrawable = theme.backgroundDrawable(keyBorder)
+
+        val feedbackEndInset = dp(4)
+        fun outputTextParams() = android.widget.FrameLayout.LayoutParams(matchParent, matchParent).apply {
+            marginEnd = dp(org.fcitx.fcitx5.android.pis.feedback.PisFeedbackView.WIDTH_DP) + feedbackEndInset
+            gravity = Gravity.START or Gravity.TOP
+        }
+        pisOutputBar.addView(kawaiiBar.view, outputTextParams())
+        pisOutputBar.addView(pisTranslationStrip, outputTextParams())
+        pisOutputBar.addView(pisVoiceStrip, outputTextParams())
+        pisOutputBar.addView(pisFeedback, android.widget.FrameLayout.LayoutParams(
+            dp(org.fcitx.fcitx5.android.pis.feedback.PisFeedbackView.WIDTH_DP), matchParent, Gravity.END or Gravity.TOP).apply {
+            marginEnd = feedbackEndInset
+        })
+
+        keyboardView = constraintLayout {
+            background = android.graphics.drawable.GradientDrawable().apply {
+                setColor(theme.keyboardColor)
+                val top = dp(12).toFloat()
+                val bottom = dp(16).toFloat()
+                cornerRadii = floatArrayOf(top, top, top, top, bottom, bottom, bottom, bottom)
+            }
+            clipToOutline = true
+            // allow MotionEvent to be delivered to keyboard while pressing on padding views.
+            // although it should be default for apps targeting Honeycomb (3.0, API 11) and higher,
+            // but it's not the case on some devices ... just set it here
+            isMotionEventSplittingEnabled = true
+            add(customBackground, lParams {
+                centerVertically()
+                centerHorizontally()
+            })
+            add(pisOutputBar, lParams(matchParent, dp(KawaiiBarComponent.HEIGHT)) {
+                topOfParent()
+                centerHorizontally()
+            })
+            add(leftPaddingSpace, lParams {
+                below(pisOutputBar)
+                startOfParent()
+                bottomOfParent()
+            })
+            add(rightPaddingSpace, lParams {
+                below(pisOutputBar)
+                endOfParent()
+                bottomOfParent()
+            })
+            add(windowManager.view, lParams {
+                below(pisOutputBar)
+                above(bottomPaddingSpace)
+                /**
+                 * set start and end constrain in [updateKeyboardSize]
+                 */
+            })
+            add(bottomPaddingSpace, lParams {
+                startToEndOf(leftPaddingSpace)
+                endToStartOf(rightPaddingSpace)
+                bottomOfParent()
+            })
+        }
+
+        updateKeyboardSize()
+
+        add(preedit.ui.root, lParams(matchParent, wrapContent) {
+            above(keyboardView)
+            centerHorizontally()
+        })
+        add(keyboardView, lParams(matchParent, wrapContent) {
+            centerHorizontally()
+            bottomOfParent()
+        })
+        add(popup.root, lParams(matchParent, matchParent) {
+            centerVertically()
+            centerHorizontally()
+        })
+
+        keyboardPrefs.registerOnChangeListener(onKeyboardSizeChangeListener)
+        advancedPrefs.registerOnChangeListener(onKeyboardSizeChangeListener)
+    }
+
+    private fun updateKeyboardSize() {
+        windowManager.view.updateLayoutParams {
+            height = keyboardHeightPx
+        }
+        bottomPaddingSpace.updateLayoutParams {
+            height = keyboardBottomPaddingPx
+        }
+        val sidePadding = keyboardSidePaddingPx
+        if (sidePadding == 0) {
+            // hide side padding space views when unnecessary
+            leftPaddingSpace.visibility = GONE
+            rightPaddingSpace.visibility = GONE
+            windowManager.view.updateLayoutParams<LayoutParams> {
+                startToEnd = unset
+                endToStart = unset
+                startOfParent()
+                endOfParent()
+            }
+        } else {
+            leftPaddingSpace.visibility = VISIBLE
+            rightPaddingSpace.visibility = VISIBLE
+            leftPaddingSpace.updateLayoutParams {
+                width = sidePadding
+            }
+            rightPaddingSpace.updateLayoutParams {
+                width = sidePadding
+            }
+            windowManager.view.updateLayoutParams<LayoutParams> {
+                startToStart = unset
+                endToEnd = unset
+                startToEndOf(leftPaddingSpace)
+                endToStartOf(rightPaddingSpace)
+            }
+        }
+        preedit.ui.root.setPadding(sidePadding, 0, sidePadding, 0)
+        kawaiiBar.view.setPadding(sidePadding, 0, sidePadding, 0)
+    }
+
+    override fun onApplyWindowInsets(insets: WindowInsets): WindowInsets {
+        bottomPaddingSpace.updateLayoutParams<LayoutParams> {
+            bottomMargin = getNavBarBottomInset(insets)
+        }
+        return insets
+    }
+
+    /**
+     * called when [InputView] is about to show, or restart
+     */
+    fun startInput(info: EditorInfo, capFlags: CapabilityFlags, restarting: Boolean = false) {
+        pisFeedback.reset()
+        broadcaster.onStartInput(info, capFlags)
+        returnKeyDrawable.updateDrawableOnEditorInfo(info)
+        if (focusChangeResetKeyboard || !restarting) {
+            windowManager.attachWindow(KeyboardWindow)
+        }
+    }
+
+    override fun onStartHandleFcitxEvent() {
+        val inputPanelData = fcitx.runImmediately { inputPanelCached }
+        val inputMethodEntry = fcitx.runImmediately { inputMethodEntryCached }
+        val statusAreaActions = fcitx.runImmediately { statusAreaActionsCached }
+        arrayOf(
+            FcitxEvent.InputPanelEvent(inputPanelData),
+            FcitxEvent.IMChangeEvent(inputMethodEntry),
+            FcitxEvent.StatusAreaEvent(
+                FcitxEvent.StatusAreaEvent.Data(statusAreaActions, inputMethodEntry)
+            )
+        ).forEach { handleFcitxEvent(it) }
+    }
+
+    override fun handleFcitxEvent(it: FcitxEvent<*>) {
+        when (it) {
+            is FcitxEvent.CandidateListEvent -> {
+                broadcaster.onCandidateUpdate(it.data)
+            }
+            is FcitxEvent.ClientPreeditEvent -> {
+                preeditEmptyState.updatePreeditEmptyState(clientPreedit = it.data)
+                broadcaster.onClientPreeditUpdate(it.data)
+            }
+            is FcitxEvent.InputPanelEvent -> {
+                preeditEmptyState.updatePreeditEmptyState(preedit = it.data.preedit)
+                broadcaster.onInputPanelUpdate(it.data)
+            }
+            is FcitxEvent.IMChangeEvent -> {
+                val chinese = it.data.languageCode.startsWith("zh")
+                pisFeedback.accept(org.fcitx.fcitx5.android.pis.feedback.PisFeedbackEvent.Language(
+                    chinese, feedbackLanguage != null && feedbackLanguage != chinese))
+                feedbackLanguage = chinese
+                broadcaster.onImeUpdate(it.data)
+            }
+            is FcitxEvent.StatusAreaEvent -> {
+                punctuation.updatePunctuationMapping(it.data.actions)
+                broadcaster.onStatusAreaUpdate(it.data.actions)
+            }
+            else -> {}
+        }
+    }
+
+    fun updateSelection(start: Int, end: Int) {
+        broadcaster.onSelectionUpdate(start, end)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.R)
+    fun handleInlineSuggestions(response: InlineSuggestionsResponse): Boolean {
+        return kawaiiBar.handleInlineSuggestions(response)
+    }
+
+    override fun onDetachedFromWindow() {
+        advancedPrefs.unregisterOnChangeListener(onKeyboardSizeChangeListener)
+        keyboardPrefs.unregisterOnChangeListener(onKeyboardSizeChangeListener)
+        // clear DynamicScope, implies that InputView should not be attached again after detached.
+        scope.clear()
+        super.onDetachedFromWindow()
+    }
+
+}

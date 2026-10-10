@@ -1,0 +1,65 @@
+{
+  "application_upstream": "https://github.com/fcitx5-android/fcitx5-android.git",
+  "upstream_commit": "048f581c652367567b8ee5c28c5163b805288895",
+  "application_branch": "pis-development",
+  "release_apk_sha256": "b711c4c76920669c0dea7d1aba7021687c96a99fd90e7c38710ec40a8e84d56c",
+  "repositories": [
+    {
+      "name": "fcitx5",
+      "path": "lib/fcitx5/src/main/cpp/fcitx5",
+      "url": "https://github.com/fcitx/fcitx5.git",
+      "commit": "16465b04f675105da9fde14e7087984bdc07a146",
+      "working_tree_modified": false
+    },
+    {
+      "name": "libime",
+      "path": "lib/libime/src/main/cpp/libime",
+      "url": "https://github.com/fcitx/libime.git",
+      "commit": "7b638a433815ed7a29d9bcb8d59aed7366bd3b28",
+      "working_tree_modified": false
+    },
+    {
+      "name": "chinese-addons",
+      "path": "lib/fcitx5-chinese-addons/src/main/cpp/fcitx5-chinese-addons",
+      "url": "https://github.com/fcitx/fcitx5-chinese-addons.git",
+      "commit": "9614900b591d180315144b14c529be756fa0e4da",
+      "working_tree_modified": true
+    },
+    {
+      "name": "fcitx5-lua",
+      "path": "lib/fcitx5-lua/src/main/cpp/fcitx5-lua",
+      "url": "https://github.com/fcitx/fcitx5-lua.git",
+      "commit": "05db9ee519d448a64ccbe216044e8e0342e8c536",
+      "working_tree_modified": false
+    },
+    {
+      "name": "kenlm",
+      "path": "lib/libime/src/main/cpp/libime/src/libime/core/kenlm",
+      "url": "https://github.com/kpu/kenlm.git",
+      "commit": "4cb443e60b7bf2c0ddf3c745378f76cb59e254e5",
+      "working_tree_modified": false
+    },
+    {
+      "name": "yoga",
+      "path": "lib/fcitx5/src/main/cpp/fcitx5/third_party/yoga",
+      "url": "https://github.com/facebook/yoga.git",
+      "commit": "042f5013152eb81c1552dec945b88f7b95ca350f",
+      "working_tree_modified": false
+    },
+    {
+      "name": "llama.cpp",
+      "path": "vendor-sources/llama.cpp",
+      "url": "https://github.com/ggml-org/llama.cpp.git",
+      "commit": "50a6c5cf7c09ea5ea9c1937e4895ce88331c2869",
+      "external_checkout": true
+    }
+  ],
+  "prebuilt": {
+    "url": "https://github.com/fcitx5-android/prebuilt.git",
+    "commit": "86ce2c95d42f1132746fbf60c278193aa1f4b758",
+    "snapshot_includes_binaries": false,
+    "prebuilder_url": "https://github.com/fcitx5-android/prebuilder",
+    "prebuilder_commit": "eb156443de3b387089e51f9bd19df4e3ddce1732"
+  },
+  "note": "Native worktree source (including pinyin patch) is saved in the snapshot; HEAD alone is not the modified product."
+}

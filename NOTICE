@@ -1,0 +1,27 @@
+pis'input method — release 2.0.0
+
+Based on Fcitx5 Android 0.1.3, commit
+048f581c652367567b8ee5c28c5163b805288895.
+Copyright notices in upstream source files remain in place.
+Fcitx5 for Android Contributors: LGPL-2.1-or-later.
+
+pis additions and modifications include the keyboard layout and minimal settings,
+candidate/translation presentation, native translation integration, offline voice
+coordination, user-frequency controls and input/feedback changes.
+See CHANGES.md, LICENSING.md, LICENSE and LICENSES/.
+
+Native components include Fcitx5, Chinese addons, libime, KenLM, Yoga, Fcitx5 Lua,
+Boost, libintl-lite, libuv, Lua, zstd, OpenCC and marisa-trie. Individual source
+files and component notices specify the applicable licenses.
+
+Translation uses llama.cpp (MIT) and Tencent Hy-MT2-1.8B-GGUF (Apache-2.0).
+Speech uses sherpa-onnx 1.13.8 (Apache-2.0) and ONNX Runtime 1.28.2 (MIT and
+third-party notices). The official AAR also contains eSpeak NG (GPLv3),
+Piper Phonemize (MIT) and other native dependencies. Their license notices and
+corresponding source/build information are provided with the release materials.
+
+Speech and punctuation model sources and licenses are recorded in
+docs/compliance/MODELS.md and THIRD_PARTY_NOTICES.md.
+
+Original license texts, copyright notices, source attribution and modifications
+are retained in the repository and release materials.

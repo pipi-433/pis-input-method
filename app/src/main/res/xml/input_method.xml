@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ref: https://developer.android.com/reference/android/view/inputmethod/InputMethodInfo#xml-attributes_1 -->
+<input-method xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:configChanges="uiMode"
+    android:settingsActivity="org.fcitx.fcitx5.android.pis.PisSettingsActivity"
+    android:supportsInlineSuggestions="true"
+    android:supportsSwitchingToNextInputMethod="true"
+    tools:targetApi="30">
+    <subtype
+        android:icon="@drawable/pis_app_icon"
+        android:imeSubtypeMode="keyboard"
+        android:isAsciiCapable="true"
+        android:label="@string/app_name"
+        android:overridesImplicitlyEnabledSubtype="true" />
+</input-method>

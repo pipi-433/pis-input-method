@@ -1,0 +1,182 @@
+/*
+ * SPDX-License-Identifier: LGPL-2.1-or-later
+ * SPDX-FileCopyrightText: Copyright 2024-2025 Fcitx5 for Android Contributors
+ */
+
+package org.fcitx.fcitx5.android.input
+
+import android.view.View
+import android.view.WindowInsets
+import android.widget.PopupMenu
+import android.app.AlertDialog
+import org.fcitx.fcitx5.android.core.CandidateWord
+import org.fcitx.fcitx5.android.pis.PisGlossary
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.text.bold
+import androidx.core.text.buildSpannedString
+import androidx.core.text.color
+import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import org.fcitx.fcitx5.android.R
+import org.fcitx.fcitx5.android.core.FcitxEvent
+import org.fcitx.fcitx5.android.daemon.FcitxConnection
+import org.fcitx.fcitx5.android.data.InputFeedbacks
+import org.fcitx.fcitx5.android.data.prefs.AppPrefs
+import org.fcitx.fcitx5.android.data.theme.Theme
+import org.fcitx.fcitx5.android.data.theme.ThemeManager
+import org.fcitx.fcitx5.android.data.theme.ThemePrefs
+import org.fcitx.fcitx5.android.utils.item
+import org.fcitx.fcitx5.android.utils.navbarFrameHeight
+import splitties.resources.styledColor
+import splitties.views.dsl.core.withTheme
+import kotlin.math.max
+
+abstract class BaseInputView(
+    val service: FcitxInputMethodService,
+    val fcitx: FcitxConnection,
+    val theme: Theme
+) : ConstraintLayout(service) {
+
+    /**
+     * Update UI (from cached events in FcitxAPI) to match fcitx's state, before ready to receive real events
+     */
+    protected abstract fun onStartHandleFcitxEvent()
+
+    protected abstract fun handleFcitxEvent(it: FcitxEvent<*>)
+
+    private var eventHandlerJob: Job? = null
+
+    private fun setupFcitxEventHandler() {
+        eventHandlerJob = service.lifecycleScope.launch {
+            fcitx.runImmediately { eventFlow }.collect {
+                handleFcitxEvent(it)
+            }
+        }
+    }
+
+    var handleEvents = false
+        set(value) {
+            field = value
+            if (field) {
+                onStartHandleFcitxEvent()
+                if (eventHandlerJob == null) {
+                    setupFcitxEventHandler()
+                }
+            } else {
+                eventHandlerJob?.cancel()
+                eventHandlerJob = null
+            }
+        }
+
+    private fun triggerCandidateAction(idx: Int, actionIdx: Int) {
+        fcitx.runIfReady { triggerCandidateAction(idx, actionIdx) }
+    }
+
+    private var candidateActionMenu: PopupMenu? = null
+
+    val themedContext = context.withTheme(R.style.Theme_InputViewTheme)
+    private var meaningDialog: AlertDialog? = null
+    private var meaningQuery: Job? = null
+    fun showCandidateMeaning(idx: Int, word: CandidateWord, anchor: View) {
+        meaningDialog?.dismiss(); meaningQuery?.cancel()
+        val connection = service.currentInputConnection
+        InputFeedbacks.hapticFeedback(anchor,longPress = true)
+        val dialog = AlertDialog.Builder(service,if (theme.isDark) android.R.style.Theme_Material_Dialog_Alert else android.R.style.Theme_Material_Light_Dialog_Alert)
+            .setTitle(word.text).setMessage("正在读取本地释义…")
+            .setPositiveButton("关闭",null)
+            .setNeutralButton("候选操作") { _, _ ->
+                service.lifecycleScope.launch {
+                    val current = fcitx.runOnReady { getCandidates(idx,1).firstOrNull() }
+                    if (service.currentInputConnection === connection && current?.text == word.text) showCandidateActionMenu(idx,word.text,anchor)
+                }
+            }.create()
+        meaningDialog = dialog
+        dialog.setOnDismissListener { meaningQuery?.cancel(); if (meaningDialog === dialog) meaningDialog = null }
+        service.showDialog(dialog)
+        meaningQuery = service.lifecycleScope.launch {
+            val entry = PisGlossary.lookupLegacy(context.applicationContext,word.text,word.comment)
+            if (dialog.isShowing && connection === service.currentInputConnection) {
+                val body = entry.definition.ifBlank { "本地词库暂无这个词的释义" }
+                dialog.setMessage(body)
+                service.emitPisFeedback(org.fcitx.fcitx5.android.pis.feedback.PisFeedbackEvent.Pulse(
+                    org.fcitx.fcitx5.android.pis.feedback.PisFeedbackEvent.Kind.Confirm))
+            }
+            else dialog.dismiss()
+        }
+    }
+
+    fun showCandidateActionMenu(idx: Int, text: String, view: View) {
+        candidateActionMenu?.dismiss()
+        candidateActionMenu = null
+        service.lifecycleScope.launch {
+            val actions = fcitx.runOnReady { getCandidateActions(idx) }
+            if (actions.isEmpty()) return@launch
+            InputFeedbacks.hapticFeedback(view, longPress = true)
+            candidateActionMenu = PopupMenu(themedContext, view).apply {
+                menu.add(buildSpannedString {
+                    bold {
+                        color(context.styledColor(android.R.attr.colorAccent)) {
+                            append(text)
+                        }
+                    }
+                }).apply {
+                    isEnabled = false
+                }
+                actions.forEach { action ->
+                    menu.item(action.text) {
+                        triggerCandidateAction(idx, action.id)
+                    }
+                }
+                setOnDismissListener {
+                    candidateActionMenu = null
+                }
+                show()
+            }
+        }
+    }
+
+    private val navbarBackground by ThemeManager.prefs.navbarBackground
+
+    protected fun getNavBarBottomInset(windowInsets: WindowInsets): Int {
+        if (navbarBackground != ThemePrefs.NavbarBackground.Full) {
+            return 0
+        }
+        val insets = WindowInsetsCompat.toWindowInsetsCompat(windowInsets)
+        // use navigation bar insets when available
+        val navBars = insets.getInsets(WindowInsetsCompat.Type.navigationBars())
+        // in case navigation bar insets goes wrong (eg. on LineageOS 21+ with gesture navigation)
+        // use mandatory system gesture insets
+        val mandatory = insets.getInsets(WindowInsetsCompat.Type.mandatorySystemGestures())
+        var insetsBottom = max(navBars.bottom, mandatory.bottom)
+        if (insetsBottom <= 0) {
+            // check system gesture insets and fallback to navigation_bar_frame_height just in case
+            val gesturesBottom = insets.getInsets(WindowInsetsCompat.Type.systemGestures()).bottom
+            if (gesturesBottom > 0) {
+                insetsBottom = max(gesturesBottom, context.navbarFrameHeight())
+            }
+        }
+        return insetsBottom
+    }
+
+    private val ignoreSystemWindowInsets by AppPrefs.getInstance().advanced.ignoreSystemWindowInsets
+
+    override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
+        if (ignoreSystemWindowInsets) {
+            // suppress view's own onApplyWindowInsets
+            setOnApplyWindowInsetsListener { _, insets -> insets }
+        } else {
+            // on API 35+, we must call requestApplyInsets() manually after replacing views,
+            // otherwise View#onApplyWindowInsets won't be called. ¯\_(ツ)_/¯
+            requestApplyInsets()
+        }
+    }
+
+    override fun onDetachedFromWindow() {
+        meaningQuery?.cancel(); meaningDialog?.dismiss()
+        handleEvents = false
+        super.onDetachedFromWindow()
+    }
+}

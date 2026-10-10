@@ -1,0 +1,1146 @@
+{
+  "date": "2026-10-10",
+  "records": [
+    {
+      "file": "LICENSES/application-bundled/APACHE-2.0.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "origin": "app/src/main/assets/pis-licenses/APACHE-2.0.txt"
+    },
+    {
+      "file": "LICENSES/application-bundled/Fcitx5-Android-LGPL-2.1.txt",
+      "sha256": "1ccf09bf2f598308df4bed9cd8e9657dc5cd0973d2800318f2e241486e2edf3f",
+      "origin": "app/src/main/assets/pis-licenses/Fcitx5-Android-LGPL-2.1.txt"
+    },
+    {
+      "file": "LICENSES/application-bundled/GPL-2.0-or-later.txt",
+      "sha256": "606aa26338f69ce178f1cbc648b7574aec4b5bbaeb20f4df36ff49010cb8fbbd",
+      "origin": "app/src/main/assets/pis-licenses/GPL-2.0-or-later.txt"
+    },
+    {
+      "file": "LICENSES/application-bundled/Hy-MT2-Apache-2.0.txt",
+      "sha256": "a1d52d448f81c584a47c583e19dfab2d3851c7c84431b07baee093c1113ed114",
+      "origin": "app/src/main/assets/pis-licenses/Hy-MT2-Apache-2.0.txt"
+    },
+    {
+      "file": "LICENSES/application-bundled/IMPORTED_RESOURCES.json",
+      "sha256": "9e2be8f4d2a567e03401981cc6187f2d07414377b4193c7b46a87957e96a54d0",
+      "origin": "app/src/main/assets/pis-licenses/IMPORTED_RESOURCES.json"
+    },
+    {
+      "file": "LICENSES/application-bundled/LGPL-2.1-or-later.txt",
+      "sha256": "1ccf09bf2f598308df4bed9cd8e9657dc5cd0973d2800318f2e241486e2edf3f",
+      "origin": "app/src/main/assets/pis-licenses/LGPL-2.1-or-later.txt"
+    },
+    {
+      "file": "LICENSES/application-bundled/llama-cpp-MIT.txt",
+      "sha256": "94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d",
+      "origin": "app/src/main/assets/pis-licenses/llama-cpp-MIT.txt"
+    },
+    {
+      "file": "LICENSES/application-bundled/onnxruntime-MIT.txt",
+      "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+      "origin": "app/src/main/assets/pis-licenses/onnxruntime-MIT.txt"
+    },
+    {
+      "file": "LICENSES/application-bundled/pypinyin-MIT.txt",
+      "sha256": "1e6c90014b4912815c296ee64bb6f6280af47e6d4c5d80e86232dfc5defe764c",
+      "origin": "app/src/main/assets/pis-licenses/pypinyin-MIT.txt"
+    },
+    {
+      "file": "LICENSES/application-bundled/SOURCES.md",
+      "sha256": "713f5fa25e14dcf6567cae75ad7cf8a37d31a63605cd61bc4fd7ff6bb5265aff",
+      "origin": "app/src/main/assets/pis-licenses/SOURCES.md"
+    },
+    {
+      "file": "LICENSES/application-bundled/translation-nlohmann-MIT.txt",
+      "sha256": "053be437ee994b771136e8287672489177496f4da5be5df74b630d63164c390b",
+      "origin": "app/src/main/assets/pis-licenses/translation-nlohmann-MIT.txt"
+    },
+    {
+      "file": "LICENSES/application-bundled/translation-rotate-bits-MIT.txt",
+      "sha256": "ca0b44aec101afb6b46f4c39b23369fa06a64fb9c0add37c2689d702156fee55",
+      "origin": "app/src/main/assets/pis-licenses/translation-rotate-bits-MIT.txt"
+    },
+    {
+      "file": "LICENSES/application-bundled/translation-sha256-MIT.txt",
+      "sha256": "b81d0022ca6367918c67b57e9647d3513ee58809fd4b0ef0b3492f1356bced25",
+      "origin": "app/src/main/assets/pis-licenses/translation-sha256-MIT.txt"
+    },
+    {
+      "file": "LICENSES/application-bundled/translation-xxhash-BSD.txt",
+      "sha256": "6ffedbc0f7878612d2b23589f1ff2ab15633e1df7963a5d9fc750ec5500c7e7a",
+      "origin": "app/src/main/assets/pis-licenses/translation-xxhash-BSD.txt"
+    },
+    {
+      "file": "LICENSES/application-bundled/Unicode-DFS-2016.txt",
+      "sha256": "a307313c2500d85dec8b3dd7e86b17e5dc08b6bda00daebe4d68f7d36beda42d",
+      "origin": "app/src/main/assets/pis-licenses/Unicode-DFS-2016.txt"
+    },
+    {
+      "file": "LICENSES/LGPL-2.1-or-later.txt",
+      "sha256": "1ccf09bf2f598308df4bed9cd8e9657dc5cd0973d2800318f2e241486e2edf3f",
+      "origin": "Fcitx5 Android LICENSE at 048f581c652367567b8ee5c28c5163b805288895"
+    },
+    {
+      "file": "LICENSES/BSL-1.0.txt",
+      "sha256": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566",
+      "origin": "Original upstream license; see component/source archive records"
+    },
+    {
+      "file": "LICENSES/GPL-3.0.txt",
+      "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+      "origin": "Original upstream license; see component/source archive records"
+    },
+    {
+      "file": "LICENSES/WTFPL.txt",
+      "sha256": "96f17857f3eb28a7d93dad930bc099a3cb65a9a2afb37069bfd1ba5ec5964389",
+      "origin": "Original upstream license; see component/source archive records"
+    },
+    {
+      "file": "LICENSES/components/fcitx5/LICENSES/LGPL-2.1-or-later.txt",
+      "sha256": "1ccf09bf2f598308df4bed9cd8e9657dc5cd0973d2800318f2e241486e2edf3f",
+      "origin": {
+        "repository": "https://github.com/fcitx/fcitx5.git",
+        "commit": "16465b04f675105da9fde14e7087984bdc07a146",
+        "path": "LICENSES/LGPL-2.1-or-later.txt"
+      }
+    },
+    {
+      "file": "LICENSES/components/fcitx5/LICENSES/Unicode-DFS-2016.txt",
+      "sha256": "a307313c2500d85dec8b3dd7e86b17e5dc08b6bda00daebe4d68f7d36beda42d",
+      "origin": {
+        "repository": "https://github.com/fcitx/fcitx5.git",
+        "commit": "16465b04f675105da9fde14e7087984bdc07a146",
+        "path": "LICENSES/Unicode-DFS-2016.txt"
+      }
+    },
+    {
+      "file": "LICENSES/components/libime/LICENSES/LGPL-2.1-or-later.txt",
+      "sha256": "1ccf09bf2f598308df4bed9cd8e9657dc5cd0973d2800318f2e241486e2edf3f",
+      "origin": {
+        "repository": "https://github.com/fcitx/libime.git",
+        "commit": "7b638a433815ed7a29d9bcb8d59aed7366bd3b28",
+        "path": "LICENSES/LGPL-2.1-or-later.txt"
+      }
+    },
+    {
+      "file": "LICENSES/components/chinese-addons/COPYING",
+      "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551",
+      "origin": {
+        "repository": "https://github.com/fcitx/fcitx5-chinese-addons.git",
+        "commit": "9614900b591d180315144b14c529be756fa0e4da",
+        "path": "COPYING"
+      }
+    },
+    {
+      "file": "LICENSES/components/chinese-addons/COPYING.unicode",
+      "sha256": "0d2fb0427544a432da3c22beb1b70e1d0c86ba368dac6d9b64e13ad4645a7ac1",
+      "origin": {
+        "repository": "https://github.com/fcitx/fcitx5-chinese-addons.git",
+        "commit": "9614900b591d180315144b14c529be756fa0e4da",
+        "path": "COPYING.unicode"
+      }
+    },
+    {
+      "file": "LICENSES/components/chinese-addons/LICENSES/GPL-2.0-or-later.txt",
+      "sha256": "606aa26338f69ce178f1cbc648b7574aec4b5bbaeb20f4df36ff49010cb8fbbd",
+      "origin": {
+        "repository": "https://github.com/fcitx/fcitx5-chinese-addons.git",
+        "commit": "9614900b591d180315144b14c529be756fa0e4da",
+        "path": "LICENSES/GPL-2.0-or-later.txt"
+      }
+    },
+    {
+      "file": "LICENSES/components/chinese-addons/LICENSES/LGPL-2.1-or-later.txt",
+      "sha256": "1ccf09bf2f598308df4bed9cd8e9657dc5cd0973d2800318f2e241486e2edf3f",
+      "origin": {
+        "repository": "https://github.com/fcitx/fcitx5-chinese-addons.git",
+        "commit": "9614900b591d180315144b14c529be756fa0e4da",
+        "path": "LICENSES/LGPL-2.1-or-later.txt"
+      }
+    },
+    {
+      "file": "LICENSES/components/fcitx5-lua/LICENSES/LGPL-2.1-or-later.txt",
+      "sha256": "1ccf09bf2f598308df4bed9cd8e9657dc5cd0973d2800318f2e241486e2edf3f",
+      "origin": {
+        "repository": "https://github.com/fcitx/fcitx5-lua.git",
+        "commit": "05db9ee519d448a64ccbe216044e8e0342e8c536",
+        "path": "LICENSES/LGPL-2.1-or-later.txt"
+      }
+    },
+    {
+      "file": "LICENSES/components/kenlm/COPYING",
+      "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551",
+      "origin": {
+        "repository": "https://github.com/kpu/kenlm.git",
+        "commit": "4cb443e60b7bf2c0ddf3c745378f76cb59e254e5",
+        "path": "COPYING"
+      }
+    },
+    {
+      "file": "LICENSES/components/kenlm/COPYING.3",
+      "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+      "origin": {
+        "repository": "https://github.com/kpu/kenlm.git",
+        "commit": "4cb443e60b7bf2c0ddf3c745378f76cb59e254e5",
+        "path": "COPYING.3"
+      }
+    },
+    {
+      "file": "LICENSES/components/kenlm/COPYING.LESSER.3",
+      "sha256": "9ccf26cfe845e0eb8bb58053e47366e7ab6b697ae010f7650978d4b71b7d1fc1",
+      "origin": {
+        "repository": "https://github.com/kpu/kenlm.git",
+        "commit": "4cb443e60b7bf2c0ddf3c745378f76cb59e254e5",
+        "path": "COPYING.LESSER.3"
+      }
+    },
+    {
+      "file": "LICENSES/components/kenlm/LICENSE",
+      "sha256": "6d9f8894586896ee3b383c962e141f527edeb54f561a6bd189d0eb08380c4cc2",
+      "origin": {
+        "repository": "https://github.com/kpu/kenlm.git",
+        "commit": "4cb443e60b7bf2c0ddf3c745378f76cb59e254e5",
+        "path": "LICENSE"
+      }
+    },
+    {
+      "file": "LICENSES/components/kenlm/util/double-conversion/LICENSE",
+      "sha256": "4af93c12062c58058378de2397dc1c92bbff9ddfb1d583a01c84127557ce97ca",
+      "origin": {
+        "repository": "https://github.com/kpu/kenlm.git",
+        "commit": "4cb443e60b7bf2c0ddf3c745378f76cb59e254e5",
+        "path": "util/double-conversion/LICENSE"
+      }
+    },
+    {
+      "file": "LICENSES/components/yoga/LICENSE",
+      "sha256": "52412d7bc7ce4157ea628bbaacb8829e0a9cb3c58f57f99176126bc8cf2bfc85",
+      "origin": {
+        "repository": "https://github.com/facebook/yoga.git",
+        "commit": "042f5013152eb81c1552dec945b88f7b95ca350f",
+        "path": "LICENSE"
+      }
+    },
+    {
+      "file": "LICENSES/components/yoga/LICENSE-examples",
+      "sha256": "32f91405bf470c1967ddf77ccd506e87a5ec15eb3e3fed863dee94b8f1db5261",
+      "origin": {
+        "repository": "https://github.com/facebook/yoga.git",
+        "commit": "042f5013152eb81c1552dec945b88f7b95ca350f",
+        "path": "LICENSE-examples"
+      }
+    },
+    {
+      "file": "LICENSES/components/libuv/LICENSE",
+      "sha256": "16de0c32b265cb7d46a6d3bd614f259dd4d693a5e26b3407b04aae8d73041f0c",
+      "origin": "prebuilt 86ce2c95d42f1132746fbf60c278193aa1f4b758: libuv/arm64-v8a/share/doc/libuv/LICENSE"
+    },
+    {
+      "file": "LICENSES/components/libuv/LICENSE-extra",
+      "sha256": "262c44bd2cdba037e6d2a82fba15f5800d292bc993a6f5d6b6ea487744d02836",
+      "origin": "prebuilt 86ce2c95d42f1132746fbf60c278193aa1f4b758: libuv/arm64-v8a/share/doc/libuv/LICENSE-extra"
+    },
+    {
+      "file": "LICENSES/components/zstd-LICENSE.txt",
+      "sha256": "7055266497633c9025b777c78eb7235af13922117480ed5c674677adc381c9d8",
+      "origin": "Pinned upstream; see THIRD_PARTY_NOTICES.md and external source records"
+    },
+    {
+      "file": "LICENSES/components/zstd-COPYING.txt",
+      "sha256": "f9c375a1be4a41f7b70301dd83c91cb89e41567478859b77eef375a52d782505",
+      "origin": "Pinned upstream; see THIRD_PARTY_NOTICES.md and external source records"
+    },
+    {
+      "file": "LICENSES/components/OpenCC-LICENSE.txt",
+      "sha256": "b534e465949558eec2597b04f5092b5e161236a68dfbfd04d547592ac3964308",
+      "origin": "Pinned upstream; see THIRD_PARTY_NOTICES.md and external source records"
+    },
+    {
+      "file": "LICENSES/components/libintl-lite-LICENSE.txt",
+      "sha256": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566",
+      "origin": "Pinned upstream; see THIRD_PARTY_NOTICES.md and external source records"
+    },
+    {
+      "file": "LICENSES/components/marisa-COPYING.md",
+      "sha256": "edf58dab34c3dc239ba4ba2d5d3d844d8c5b442aa4dd1149fac81b2d8c6cb8d1",
+      "origin": "Pinned upstream; see THIRD_PARTY_NOTICES.md and external source records"
+    },
+    {
+      "file": "LICENSES/components/sherpa-onnx-LICENSE.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "origin": "Pinned upstream; see THIRD_PARTY_NOTICES.md and external source records"
+    },
+    {
+      "file": "LICENSES/components/onnxruntime-LICENSE.txt",
+      "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+      "origin": "Pinned upstream; see THIRD_PARTY_NOTICES.md and external source records"
+    },
+    {
+      "file": "LICENSES/components/onnxruntime-ThirdPartyNotices.txt",
+      "sha256": "0e07b95f3a8d6230037707c5c4a2b554d12c4cb67369669ac255635528ffcee2",
+      "origin": "Pinned upstream; see THIRD_PARTY_NOTICES.md and external source records"
+    },
+    {
+      "file": "LICENSES/components/sherpa-onnx/LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "origin": {
+        "archive": "sherpa-source.zip",
+        "url": "https://codeload.github.com/k2-fsa/sherpa-onnx/zip/refs/tags/v1.13.8",
+        "version": "v1.13.8",
+        "entry": "sherpa-onnx-1.13.8/LICENSE"
+      }
+    },
+    {
+      "file": "LICENSES/components/espeak-ng/COPYING",
+      "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+      "origin": {
+        "archive": "espeak-ng-source.zip",
+        "url": "https://codeload.github.com/csukuangfj/espeak-ng/zip/ed530aa113046142eb5115cf2fc9157854d0ffe1",
+        "version": "ed530aa113046142eb5115cf2fc9157854d0ffe1",
+        "entry": "espeak-ng-ed530aa113046142eb5115cf2fc9157854d0ffe1/COPYING"
+      }
+    },
+    {
+      "file": "LICENSES/components/espeak-ng/COPYING.APACHE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "origin": {
+        "archive": "espeak-ng-source.zip",
+        "url": "https://codeload.github.com/csukuangfj/espeak-ng/zip/ed530aa113046142eb5115cf2fc9157854d0ffe1",
+        "version": "ed530aa113046142eb5115cf2fc9157854d0ffe1",
+        "entry": "espeak-ng-ed530aa113046142eb5115cf2fc9157854d0ffe1/COPYING.APACHE"
+      }
+    },
+    {
+      "file": "LICENSES/components/espeak-ng/COPYING.BSD2",
+      "sha256": "a8b0c1c7d7af6c0415c068be8cf373799d1a42b0707b79dc4ccfcaf593cd902d",
+      "origin": {
+        "archive": "espeak-ng-source.zip",
+        "url": "https://codeload.github.com/csukuangfj/espeak-ng/zip/ed530aa113046142eb5115cf2fc9157854d0ffe1",
+        "version": "ed530aa113046142eb5115cf2fc9157854d0ffe1",
+        "entry": "espeak-ng-ed530aa113046142eb5115cf2fc9157854d0ffe1/COPYING.BSD2"
+      }
+    },
+    {
+      "file": "LICENSES/components/espeak-ng/COPYING.UCD",
+      "sha256": "be029c50df83105a810e391778b6edcb522d6cb4b4e142332aca54437a499bf7",
+      "origin": {
+        "archive": "espeak-ng-source.zip",
+        "url": "https://codeload.github.com/csukuangfj/espeak-ng/zip/ed530aa113046142eb5115cf2fc9157854d0ffe1",
+        "version": "ed530aa113046142eb5115cf2fc9157854d0ffe1",
+        "entry": "espeak-ng-ed530aa113046142eb5115cf2fc9157854d0ffe1/COPYING.UCD"
+      }
+    },
+    {
+      "file": "LICENSES/components/espeak-ng/src/ucd-tools/COPYING",
+      "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+      "origin": {
+        "archive": "espeak-ng-source.zip",
+        "url": "https://codeload.github.com/csukuangfj/espeak-ng/zip/ed530aa113046142eb5115cf2fc9157854d0ffe1",
+        "version": "ed530aa113046142eb5115cf2fc9157854d0ffe1",
+        "entry": "espeak-ng-ed530aa113046142eb5115cf2fc9157854d0ffe1/src/ucd-tools/COPYING"
+      }
+    },
+    {
+      "file": "LICENSES/components/espeak-ng/src/ucd-tools/COPYING.UCD",
+      "sha256": "be029c50df83105a810e391778b6edcb522d6cb4b4e142332aca54437a499bf7",
+      "origin": {
+        "archive": "espeak-ng-source.zip",
+        "url": "https://codeload.github.com/csukuangfj/espeak-ng/zip/ed530aa113046142eb5115cf2fc9157854d0ffe1",
+        "version": "ed530aa113046142eb5115cf2fc9157854d0ffe1",
+        "entry": "espeak-ng-ed530aa113046142eb5115cf2fc9157854d0ffe1/src/ucd-tools/COPYING.UCD"
+      }
+    },
+    {
+      "file": "LICENSES/components/espeak-ng/src/windows/installer/License_GPLv3.rtf",
+      "sha256": "65841738955d35894b0ba444beff6d34a4581e8203d887b1f7419e3240443f76",
+      "origin": {
+        "archive": "espeak-ng-source.zip",
+        "url": "https://codeload.github.com/csukuangfj/espeak-ng/zip/ed530aa113046142eb5115cf2fc9157854d0ffe1",
+        "version": "ed530aa113046142eb5115cf2fc9157854d0ffe1",
+        "entry": "espeak-ng-ed530aa113046142eb5115cf2fc9157854d0ffe1/src/windows/installer/License_GPLv3.rtf"
+      }
+    },
+    {
+      "file": "LICENSES/components/piper-phonemize/LICENSE.md",
+      "sha256": "13746d509d74e55ea2265fbef204bb7cdbf84a8315b0207e988326cb54387028",
+      "origin": {
+        "archive": "piper-phonemize-source.zip",
+        "url": "https://codeload.github.com/csukuangfj/piper-phonemize/zip/f3ff95afc03640bc1399e113e83361192a2fafb4",
+        "version": "f3ff95afc03640bc1399e113e83361192a2fafb4",
+        "entry": "piper-phonemize-f3ff95afc03640bc1399e113e83361192a2fafb4/LICENSE.md"
+      }
+    },
+    {
+      "file": "LICENSES/components/piper-phonemize/licenses/uni-algo/LICENSE.md",
+      "sha256": "c55648b02873556d6ab2de14938998101fda3a0f293337542af9196435def318",
+      "origin": {
+        "archive": "piper-phonemize-source.zip",
+        "url": "https://codeload.github.com/csukuangfj/piper-phonemize/zip/f3ff95afc03640bc1399e113e83361192a2fafb4",
+        "version": "f3ff95afc03640bc1399e113e83361192a2fafb4",
+        "entry": "piper-phonemize-f3ff95afc03640bc1399e113e83361192a2fafb4/licenses/uni-algo/LICENSE.md"
+      }
+    },
+    {
+      "file": "LICENSES/components/kaldi-native-fbank/LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "origin": {
+        "archive": "kaldi-fbank-source.tar.gz",
+        "url": "https://codeload.github.com/csukuangfj/kaldi-native-fbank/tar.gz/refs/tags/v1.22.3",
+        "version": "v1.22.3",
+        "entry": "kaldi-native-fbank-1.22.3/LICENSE"
+      }
+    },
+    {
+      "file": "LICENSES/components/kaldi-decoder/LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "origin": {
+        "archive": "kaldi-decoder-source.tar.gz",
+        "url": "https://codeload.github.com/k2-fsa/kaldi-decoder/tar.gz/refs/tags/v0.3.0",
+        "version": "v0.3.0",
+        "entry": "kaldi-decoder-0.3.0/LICENSE"
+      }
+    },
+    {
+      "file": "LICENSES/components/hclust-cpp/LICENSE",
+      "sha256": "e361d842da1d290351860ad6dcce2673a1e42e4f873a3ae1ff4eb92c6adaa882",
+      "origin": {
+        "archive": "hclust-source.tar.gz",
+        "url": "https://codeload.github.com/csukuangfj/hclust-cpp/tar.gz/refs/tags/2026-02-25",
+        "version": "2026-02-25",
+        "entry": "hclust-cpp-2026-02-25/LICENSE"
+      }
+    },
+    {
+      "file": "LICENSES/components/openfst/COPYING",
+      "sha256": "4300529197035fd3452350718a0b8cee984e9412c9932d7f35fcde849fc97a4b",
+      "origin": {
+        "archive": "openfst-source.tar.gz",
+        "url": "https://codeload.github.com/csukuangfj/openfst/tar.gz/refs/tags/v1.8.5-2026-07-09",
+        "version": "v1.8.5-2026-07-09",
+        "entry": "openfst-1.8.5-2026-07-09/COPYING"
+      }
+    },
+    {
+      "file": "LICENSES/components/simple-sentencepiece/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "origin": {
+        "archive": "simple-sentencepiece-source.tar.gz",
+        "url": "https://codeload.github.com/pkufool/simple-sentencepiece/tar.gz/refs/tags/v0.7",
+        "version": "v0.7",
+        "entry": "simple-sentencepiece-0.7/LICENSE"
+      }
+    },
+    {
+      "file": "LICENSES/components/onnxruntime/LICENSE",
+      "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c",
+      "origin": {
+        "archive": "onnxruntime-source.zip",
+        "url": "https://codeload.github.com/microsoft/onnxruntime/zip/refs/tags/v1.28.2",
+        "version": "v1.28.2",
+        "entry": "onnxruntime-1.28.2/LICENSE"
+      }
+    },
+    {
+      "file": "LICENSES/components/onnxruntime/ThirdPartyNotices.txt",
+      "sha256": "0e07b95f3a8d6230037707c5c4a2b554d12c4cb67369669ac255635528ffcee2",
+      "origin": {
+        "archive": "onnxruntime-source.zip",
+        "url": "https://codeload.github.com/microsoft/onnxruntime/zip/refs/tags/v1.28.2",
+        "version": "v1.28.2",
+        "entry": "onnxruntime-1.28.2/ThirdPartyNotices.txt"
+      }
+    },
+    {
+      "file": "LICENSES/components/onnxruntime/dockerfiles/LICENSE-IMAGE.txt",
+      "sha256": "ca180cdd0ec6f4ca68db0488ba79e7db666e26ea1e49db15c3b2a3b8381442fd",
+      "origin": {
+        "archive": "onnxruntime-source.zip",
+        "url": "https://codeload.github.com/microsoft/onnxruntime/zip/refs/tags/v1.28.2",
+        "version": "v1.28.2",
+        "entry": "onnxruntime-1.28.2/dockerfiles/LICENSE-IMAGE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/components/onnxruntime/rust/LICENSE-APACHE",
+      "sha256": "f4d2c773ac92765f2f2b2f4cae3b0710b6fb4293ddc555d8f8a011ada12e84f3",
+      "origin": {
+        "archive": "onnxruntime-source.zip",
+        "url": "https://codeload.github.com/microsoft/onnxruntime/zip/refs/tags/v1.28.2",
+        "version": "v1.28.2",
+        "entry": "onnxruntime-1.28.2/rust/LICENSE-APACHE"
+      }
+    },
+    {
+      "file": "LICENSES/components/onnxruntime/rust/LICENSE-MIT",
+      "sha256": "acda9cba15b9c7e0663718fdc8bd8e1cbbc142545da187d84c7e8e2a6146e76e",
+      "origin": {
+        "archive": "onnxruntime-source.zip",
+        "url": "https://codeload.github.com/microsoft/onnxruntime/zip/refs/tags/v1.28.2",
+        "version": "v1.28.2",
+        "entry": "onnxruntime-1.28.2/rust/LICENSE-MIT"
+      }
+    },
+    {
+      "file": "LICENSES/components/onnxruntime/winml/test/collateral/images/LICENSE.md",
+      "sha256": "00ccbe927675ce8c8841c2d8849886d9e5e1160d982277d90fde7807f2a4aabb",
+      "origin": {
+        "archive": "onnxruntime-source.zip",
+        "url": "https://codeload.github.com/microsoft/onnxruntime/zip/refs/tags/v1.28.2",
+        "version": "v1.28.2",
+        "entry": "onnxruntime-1.28.2/winml/test/collateral/images/LICENSE.md"
+      }
+    },
+    {
+      "file": "LICENSES/components/onnxruntime/winml/test/collateral/models/LICENSE.md",
+      "sha256": "949addf0d4269f3d397bb85cee8660c4999eea1ca42db7144e5f0ff0f82aaa51",
+      "origin": {
+        "archive": "onnxruntime-source.zip",
+        "url": "https://codeload.github.com/microsoft/onnxruntime/zip/refs/tags/v1.28.2",
+        "version": "v1.28.2",
+        "entry": "onnxruntime-1.28.2/winml/test/collateral/models/LICENSE.md"
+      }
+    },
+    {
+      "file": "LICENSES/components/onnxruntime/winml/test/scenario/models/LICENSE.md",
+      "sha256": "0703b52991ed9054dbc4a141ff6b64989d39f4904709f2e29b2ff94776129215",
+      "origin": {
+        "archive": "onnxruntime-source.zip",
+        "url": "https://codeload.github.com/microsoft/onnxruntime/zip/refs/tags/v1.28.2",
+        "version": "v1.28.2",
+        "entry": "onnxruntime-1.28.2/winml/test/scenario/models/LICENSE.md"
+      }
+    },
+    {
+      "file": "LICENSES/components/lua/src/lua.h",
+      "sha256": "341014ee8b49570fc01c1fb2afc6a7decc853525636c74e7a6a9507a933aa62e",
+      "origin": {
+        "archive": "Lua-source.tar.gz",
+        "url": "https://www.lua.org/ftp/lua-5.4.7.tar.gz",
+        "version": "5.4.7",
+        "entry": "lua-5.4.7/src/lua.h"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.activity--activity/META-INF/androidx/activity/activity/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.activity:activity",
+        "version": "1.13.0",
+        "artifact": "activity-1.13.0.aar",
+        "entry": "META-INF/androidx/activity/activity/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.activity--activity-ktx/META-INF/androidx/activity/activity-ktx/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.activity:activity-ktx",
+        "version": "1.13.0",
+        "artifact": "activity-ktx-1.13.0.aar",
+        "entry": "META-INF/androidx/activity/activity-ktx/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.annotation--annotation-jvm/META-INF/androidx/annotation/annotation/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.annotation:annotation-jvm",
+        "version": "1.9.1",
+        "artifact": "annotation-jvm-1.9.1.jar",
+        "entry": "META-INF/androidx/annotation/annotation/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.autofill--autofill/META-INF/androidx/autofill/autofill/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.autofill:autofill",
+        "version": "1.3.0",
+        "artifact": "autofill-1.3.0.aar",
+        "entry": "META-INF/androidx/autofill/autofill/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.collection--collection-jvm/META-INF/androidx/collection/collection/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.collection:collection-jvm",
+        "version": "1.5.0",
+        "artifact": "collection-jvm-1.5.0.jar",
+        "entry": "META-INF/androidx/collection/collection/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.collection--collection-ktx/META-INF/androidx/collection/collection-ktx/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.collection:collection-ktx",
+        "version": "1.5.0",
+        "artifact": "collection-ktx-1.5.0.jar",
+        "entry": "META-INF/androidx/collection/collection-ktx/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.compose.runtime--runtime-annotation-android/META-INF/androidx/compose/runtime/runtime-annotation/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.compose.runtime:runtime-annotation-android",
+        "version": "1.9.0",
+        "artifact": "runtime-annotation.aar",
+        "entry": "META-INF/androidx/compose/runtime/runtime-annotation/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.constraintlayout--constraintlayout/META-INF/androidx/constraintlayout/constraintlayout/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.constraintlayout:constraintlayout",
+        "version": "2.2.1",
+        "artifact": "constraintlayout-2.2.1.aar",
+        "entry": "META-INF/androidx/constraintlayout/constraintlayout/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.constraintlayout--constraintlayout-core/META-INF/androidx/constraintlayout/constraintlayout-core/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.constraintlayout:constraintlayout-core",
+        "version": "1.1.1",
+        "artifact": "constraintlayout-core-1.1.1.jar",
+        "entry": "META-INF/androidx/constraintlayout/constraintlayout-core/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.coordinatorlayout--coordinatorlayout/META-INF/androidx/coordinatorlayout/coordinatorlayout/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.coordinatorlayout:coordinatorlayout",
+        "version": "1.3.0",
+        "artifact": "coordinatorlayout-1.3.0.aar",
+        "entry": "META-INF/androidx/coordinatorlayout/coordinatorlayout/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.core--core/META-INF/androidx/core/core/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.core:core",
+        "version": "1.18.0",
+        "artifact": "core-1.18.0.aar",
+        "entry": "META-INF/androidx/core/core/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.core--core-ktx/META-INF/androidx/core/core-ktx/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.core:core-ktx",
+        "version": "1.18.0",
+        "artifact": "core-ktx-1.18.0.aar",
+        "entry": "META-INF/androidx/core/core-ktx/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.core--core-viewtree/META-INF/androidx/core/core-viewtree/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.core:core-viewtree",
+        "version": "1.0.0",
+        "artifact": "core-viewtree-1.0.0.aar",
+        "entry": "META-INF/androidx/core/core-viewtree/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.customview--customview/META-INF/androidx/customview/customview/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.customview:customview",
+        "version": "1.2.0",
+        "artifact": "customview-1.2.0.aar",
+        "entry": "META-INF/androidx/customview/customview/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.dynamicanimation--dynamicanimation/META-INF/androidx/dynamicanimation/dynamicanimation/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.dynamicanimation:dynamicanimation",
+        "version": "1.1.0",
+        "artifact": "dynamicanimation-1.1.0.aar",
+        "entry": "META-INF/androidx/dynamicanimation/dynamicanimation/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.graphics--graphics-shapes-android/META-INF/androidx/graphics/graphics-shapes/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.graphics:graphics-shapes-android",
+        "version": "1.0.1",
+        "artifact": "graphics-shapes-release.aar",
+        "entry": "META-INF/androidx/graphics/graphics-shapes/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.lifecycle--lifecycle-common-java8/META-INF/androidx/lifecycle/lifecycle-common-java8/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.lifecycle:lifecycle-common-java8",
+        "version": "2.11.0",
+        "artifact": "lifecycle-common-java8-2.11.0.jar",
+        "entry": "META-INF/androidx/lifecycle/lifecycle-common-java8/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.lifecycle--lifecycle-common-jvm/META-INF/androidx/lifecycle/lifecycle-common/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.lifecycle:lifecycle-common-jvm",
+        "version": "2.11.0",
+        "artifact": "lifecycle-common-jvm-2.11.0.jar",
+        "entry": "META-INF/androidx/lifecycle/lifecycle-common/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.lifecycle--lifecycle-livedata/META-INF/androidx/lifecycle/lifecycle-livedata/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.lifecycle:lifecycle-livedata",
+        "version": "2.11.0",
+        "artifact": "lifecycle-livedata-2.11.0.aar",
+        "entry": "META-INF/androidx/lifecycle/lifecycle-livedata/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.lifecycle--lifecycle-livedata-core/META-INF/androidx/lifecycle/lifecycle-livedata-core/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.lifecycle:lifecycle-livedata-core",
+        "version": "2.11.0",
+        "artifact": "lifecycle-livedata-core-2.11.0.aar",
+        "entry": "META-INF/androidx/lifecycle/lifecycle-livedata-core/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.lifecycle--lifecycle-livedata-core-ktx/META-INF/androidx/lifecycle/lifecycle-livedata-core-ktx/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.lifecycle:lifecycle-livedata-core-ktx",
+        "version": "2.11.0",
+        "artifact": "lifecycle-livedata-core-ktx-2.11.0.aar",
+        "entry": "META-INF/androidx/lifecycle/lifecycle-livedata-core-ktx/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.lifecycle--lifecycle-livedata-ktx/META-INF/androidx/lifecycle/lifecycle-livedata-ktx/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.lifecycle:lifecycle-livedata-ktx",
+        "version": "2.11.0",
+        "artifact": "lifecycle-livedata-ktx-2.11.0.aar",
+        "entry": "META-INF/androidx/lifecycle/lifecycle-livedata-ktx/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.lifecycle--lifecycle-process/META-INF/androidx/lifecycle/lifecycle-process/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.lifecycle:lifecycle-process",
+        "version": "2.11.0",
+        "artifact": "lifecycle-process-2.11.0.aar",
+        "entry": "META-INF/androidx/lifecycle/lifecycle-process/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.lifecycle--lifecycle-runtime-android/META-INF/androidx/lifecycle/lifecycle-runtime/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.lifecycle:lifecycle-runtime-android",
+        "version": "2.11.0",
+        "artifact": "lifecycle-runtime.aar",
+        "entry": "META-INF/androidx/lifecycle/lifecycle-runtime/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.lifecycle--lifecycle-runtime-ktx-android/META-INF/androidx/lifecycle/lifecycle-runtime-ktx/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.lifecycle:lifecycle-runtime-ktx-android",
+        "version": "2.11.0",
+        "artifact": "lifecycle-runtime-ktx.aar",
+        "entry": "META-INF/androidx/lifecycle/lifecycle-runtime-ktx/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.lifecycle--lifecycle-service/META-INF/androidx/lifecycle/lifecycle-service/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.lifecycle:lifecycle-service",
+        "version": "2.11.0",
+        "artifact": "lifecycle-service-2.11.0.aar",
+        "entry": "META-INF/androidx/lifecycle/lifecycle-service/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.lifecycle--lifecycle-viewmodel-android/META-INF/androidx/lifecycle/lifecycle-viewmodel/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.lifecycle:lifecycle-viewmodel-android",
+        "version": "2.11.0",
+        "artifact": "lifecycle-viewmodel.aar",
+        "entry": "META-INF/androidx/lifecycle/lifecycle-viewmodel/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.lifecycle--lifecycle-viewmodel-ktx/META-INF/androidx/lifecycle/lifecycle-viewmodel-ktx/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.lifecycle:lifecycle-viewmodel-ktx",
+        "version": "2.11.0",
+        "artifact": "lifecycle-viewmodel-ktx-2.11.0.aar",
+        "entry": "META-INF/androidx/lifecycle/lifecycle-viewmodel-ktx/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.lifecycle--lifecycle-viewmodel-savedstate-android/META-INF/androidx/lifecycle/lifecycle-viewmodel-savedstate/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.lifecycle:lifecycle-viewmodel-savedstate-android",
+        "version": "2.11.0",
+        "artifact": "lifecycle-viewmodel-savedstate.aar",
+        "entry": "META-INF/androidx/lifecycle/lifecycle-viewmodel-savedstate/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.navigation--navigation-common-android/META-INF/androidx/navigation/navigation-common/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.navigation:navigation-common-android",
+        "version": "2.9.8",
+        "artifact": "navigation-common-release.aar",
+        "entry": "META-INF/androidx/navigation/navigation-common/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.navigation--navigation-fragment/META-INF/androidx/navigation/navigation-fragment/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.navigation:navigation-fragment",
+        "version": "2.9.8",
+        "artifact": "navigation-fragment-2.9.8.aar",
+        "entry": "META-INF/androidx/navigation/navigation-fragment/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.navigation--navigation-fragment-ktx/META-INF/androidx/navigation/navigation-fragment-ktx/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.navigation:navigation-fragment-ktx",
+        "version": "2.9.8",
+        "artifact": "navigation-fragment-ktx-2.9.8.aar",
+        "entry": "META-INF/androidx/navigation/navigation-fragment-ktx/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.navigation--navigation-runtime-android/META-INF/androidx/navigation/navigation-runtime/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.navigation:navigation-runtime-android",
+        "version": "2.9.8",
+        "artifact": "navigation-runtime-release.aar",
+        "entry": "META-INF/androidx/navigation/navigation-runtime/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.navigation--navigation-ui/META-INF/androidx/navigation/navigation-ui/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.navigation:navigation-ui",
+        "version": "2.9.8",
+        "artifact": "navigation-ui-2.9.8.aar",
+        "entry": "META-INF/androidx/navigation/navigation-ui/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.navigation--navigation-ui-ktx/META-INF/androidx/navigation/navigation-ui-ktx/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.navigation:navigation-ui-ktx",
+        "version": "2.9.8",
+        "artifact": "navigation-ui-ktx-2.9.8.aar",
+        "entry": "META-INF/androidx/navigation/navigation-ui-ktx/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.navigationevent--navigationevent-android/META-INF/androidx/navigationevent/navigationevent/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.navigationevent:navigationevent-android",
+        "version": "1.0.0",
+        "artifact": "navigationevent.aar",
+        "entry": "META-INF/androidx/navigationevent/navigationevent/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.paging--paging-common-android/META-INF/androidx/paging/paging-common/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.paging:paging-common-android",
+        "version": "3.5.0",
+        "artifact": "paging-common.aar",
+        "entry": "META-INF/androidx/paging/paging-common/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.paging--paging-common-ktx/META-INF/androidx/paging/paging-common-ktx/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.paging:paging-common-ktx",
+        "version": "3.5.0",
+        "artifact": "paging-common-ktx-3.5.0.jar",
+        "entry": "META-INF/androidx/paging/paging-common-ktx/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.paging--paging-runtime/META-INF/androidx/paging/paging-runtime/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.paging:paging-runtime",
+        "version": "3.5.0",
+        "artifact": "paging-runtime-3.5.0.aar",
+        "entry": "META-INF/androidx/paging/paging-runtime/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.paging--paging-runtime-ktx/META-INF/androidx/paging/paging-runtime-ktx/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.paging:paging-runtime-ktx",
+        "version": "3.5.0",
+        "artifact": "paging-runtime-ktx-3.5.0.aar",
+        "entry": "META-INF/androidx/paging/paging-runtime-ktx/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.recyclerview--recyclerview/META-INF/androidx/recyclerview/recyclerview/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.recyclerview:recyclerview",
+        "version": "1.4.0",
+        "artifact": "recyclerview-1.4.0.aar",
+        "entry": "META-INF/androidx/recyclerview/recyclerview/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.room--room-common-jvm/META-INF/androidx/room/room-common/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.room:room-common-jvm",
+        "version": "2.8.4",
+        "artifact": "room-common-jvm-2.8.4.jar",
+        "entry": "META-INF/androidx/room/room-common/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.room--room-ktx/META-INF/androidx/room/room-ktx/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.room:room-ktx",
+        "version": "2.8.4",
+        "artifact": "room-ktx-2.8.4.aar",
+        "entry": "META-INF/androidx/room/room-ktx/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.room--room-paging-android/META-INF/androidx/room/room-paging/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.room:room-paging-android",
+        "version": "2.8.4",
+        "artifact": "room-paging.aar",
+        "entry": "META-INF/androidx/room/room-paging/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.room--room-runtime-android/META-INF/androidx/room/room-runtime/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.room:room-runtime-android",
+        "version": "2.8.4",
+        "artifact": "room-runtime.aar",
+        "entry": "META-INF/androidx/room/room-runtime/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.savedstate--savedstate-android/META-INF/androidx/savedstate/savedstate/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.savedstate:savedstate-android",
+        "version": "1.4.0",
+        "artifact": "savedstate.aar",
+        "entry": "META-INF/androidx/savedstate/savedstate/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.savedstate--savedstate-ktx/META-INF/androidx/savedstate/savedstate-ktx/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.savedstate:savedstate-ktx",
+        "version": "1.4.0",
+        "artifact": "savedstate-ktx-1.4.0.aar",
+        "entry": "META-INF/androidx/savedstate/savedstate-ktx/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.sqlite--sqlite-android/META-INF/androidx/sqlite/sqlite/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.sqlite:sqlite-android",
+        "version": "2.6.2",
+        "artifact": "sqlite.aar",
+        "entry": "META-INF/androidx/sqlite/sqlite/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.sqlite--sqlite-framework-android/META-INF/androidx/sqlite/sqlite-framework/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.sqlite:sqlite-framework-android",
+        "version": "2.6.2",
+        "artifact": "sqlite-framework.aar",
+        "entry": "META-INF/androidx/sqlite/sqlite-framework/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/maven/androidx.startup--startup-runtime/META-INF/androidx/startup/startup-runtime/LICENSE.txt",
+      "sha256": "809fa1ed21450f59827d1e9aec720bbc4b687434fa22283c6cb5dd82a47ab9c0",
+      "origin": {
+        "coordinate": "androidx.startup:startup-runtime",
+        "version": "1.2.0",
+        "artifact": "startup-runtime-1.2.0.aar",
+        "entry": "META-INF/androidx/startup/startup-runtime/LICENSE.txt"
+      }
+    },
+    {
+      "file": "LICENSES/components/android-ndk/NOTICE",
+      "sha256": "d8bfe075f09b1a64be034327085219f894133c5f13bf14fd026fb8eb60e44d32",
+      "origin": "Android NDK 28.0.13004108: NOTICE"
+    },
+    {
+      "file": "LICENSES/components/android-ndk/NOTICE.toolchain",
+      "sha256": "69f10d9ba1dd4b21b886b680926056ba43fe37dbbb7e41edf548a39125a17f2a",
+      "origin": "Android NDK 28.0.13004108: NOTICE.toolchain"
+    },
+    {
+      "file": "LICENSES/components/android-ndk/toolchains--llvm--prebuilt--windows-x86_64--NOTICE",
+      "sha256": "f96f763beb66a7ba7a667647fc64c0226ace875e590c831fdd9579ec1c1d91e1",
+      "origin": "Android NDK 28.0.13004108: toolchains/llvm/prebuilt/windows-x86_64/NOTICE"
+    },
+    {
+      "file": "LICENSES/components/llama.cpp/LICENSE",
+      "sha256": "94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d",
+      "origin": {
+        "repository": "https://github.com/ggml-org/llama.cpp.git",
+        "commit": "50a6c5cf7c09ea5ea9c1937e4895ce88331c2869",
+        "path": "LICENSE"
+      }
+    },
+    {
+      "file": "LICENSES/components/llama.cpp/cmake/license.cmake",
+      "sha256": "083515dff8a9b8696e348c7c616934e53941a7db30e1b3f092576632e9a2d1d4",
+      "origin": {
+        "repository": "https://github.com/ggml-org/llama.cpp.git",
+        "commit": "50a6c5cf7c09ea5ea9c1937e4895ce88331c2869",
+        "path": "cmake/license.cmake"
+      }
+    },
+    {
+      "file": "LICENSES/components/llama.cpp/gguf-py/LICENSE",
+      "sha256": "ef78c7e6659e34c798194f0d344e807c722de70cbca1359ef54772661e11ca38",
+      "origin": {
+        "repository": "https://github.com/ggml-org/llama.cpp.git",
+        "commit": "50a6c5cf7c09ea5ea9c1937e4895ce88331c2869",
+        "path": "gguf-py/LICENSE"
+      }
+    },
+    {
+      "file": "LICENSES/components/llama.cpp/licenses/LICENSE-jsonhpp",
+      "sha256": "c0d068392ea65358b798b8c165103560f06e9e3b38c4ab4e2d8810a7b931af86",
+      "origin": {
+        "repository": "https://github.com/ggml-org/llama.cpp.git",
+        "commit": "50a6c5cf7c09ea5ea9c1937e4895ce88331c2869",
+        "path": "licenses/LICENSE-jsonhpp"
+      }
+    },
+    {
+      "file": "LICENSES/components/llama.cpp/tools/ui/src/lib/vendors/big-integer/LICENSE",
+      "sha256": "e9b0e94f628e00b5ed98046cfa041696ff89eebbbdd54108ee350625bc6d0363",
+      "origin": {
+        "repository": "https://github.com/ggml-org/llama.cpp.git",
+        "commit": "50a6c5cf7c09ea5ea9c1937e4895ce88331c2869",
+        "path": "tools/ui/src/lib/vendors/big-integer/LICENSE"
+      }
+    },
+    {
+      "file": "LICENSES/components/llama.cpp/tools/ui/src/lib/vendors/nerdamer-prime/LICENSE",
+      "sha256": "c9f52548869a0a2e63a7100055c54cebf36b9327c8fc2da7cf9ca8dddc2f1cca",
+      "origin": {
+        "repository": "https://github.com/ggml-org/llama.cpp.git",
+        "commit": "50a6c5cf7c09ea5ea9c1937e4895ce88331c2869",
+        "path": "tools/ui/src/lib/vendors/nerdamer-prime/LICENSE"
+      }
+    },
+    {
+      "file": "LICENSES/components/llama.cpp/vendor/cpp-httplib/LICENSE",
+      "sha256": "4b45cbe16d7b71b89ae6127e26e0d90a029198ca5e958ad8e3d0b8bbed364d8b",
+      "origin": {
+        "repository": "https://github.com/ggml-org/llama.cpp.git",
+        "commit": "50a6c5cf7c09ea5ea9c1937e4895ce88331c2869",
+        "path": "vendor/cpp-httplib/LICENSE"
+      }
+    },
+    {
+      "file": "LICENSES/components/llama.cpp/vendor/hash/rotate-bits/LICENSE.md",
+      "sha256": "ca0b44aec101afb6b46f4c39b23369fa06a64fb9c0add37c2689d702156fee55",
+      "origin": {
+        "repository": "https://github.com/ggml-org/llama.cpp.git",
+        "commit": "50a6c5cf7c09ea5ea9c1937e4895ce88331c2869",
+        "path": "vendor/hash/rotate-bits/LICENSE.md"
+      }
+    },
+    {
+      "file": "LICENSES/components/llama.cpp/vendor/hash/sha256/LICENSE",
+      "sha256": "b81d0022ca6367918c67b57e9647d3513ee58809fd4b0ef0b3492f1356bced25",
+      "origin": {
+        "repository": "https://github.com/ggml-org/llama.cpp.git",
+        "commit": "50a6c5cf7c09ea5ea9c1937e4895ce88331c2869",
+        "path": "vendor/hash/sha256/LICENSE"
+      }
+    },
+    {
+      "file": "LICENSES/components/llama.cpp/vendor/hash/xxhash/LICENSE",
+      "sha256": "6ffedbc0f7878612d2b23589f1ff2ab15633e1df7963a5d9fc750ec5500c7e7a",
+      "origin": {
+        "repository": "https://github.com/ggml-org/llama.cpp.git",
+        "commit": "50a6c5cf7c09ea5ea9c1937e4895ce88331c2869",
+        "path": "vendor/hash/xxhash/LICENSE"
+      }
+    },
+    {
+      "file": "LICENSES/models/Zipformer-original-model-card.md",
+      "sha256": "b432b64beda4db9ab5230fe0fc1f9506db56c16feb8e80b711be399c14b9f059",
+      "origin": {
+        "url": "https://huggingface.co/csukuangfj/k2fsa-zipformer-bilingual-zh-en-t",
+        "revision": "e2382758de9a0219b4efe682b95af30b399db3b8",
+        "excerpt": "original YAML license metadata; no full model-card reproduction"
+      }
+    },
+    {
+      "file": "LICENSES/models/punctuation-conversion-README.md",
+      "sha256": "d938555fe92d58903a111d7a4eb2ab9969b56f487c7648f6c1d1bed725a8cf58",
+      "origin": "Official sherpa punctuation model archive README provenance and upstream model license page"
+    }
+  ],
+  "license_texts_are_original": true,
+  "scope": "Component licenses, notices and release source information"
+}

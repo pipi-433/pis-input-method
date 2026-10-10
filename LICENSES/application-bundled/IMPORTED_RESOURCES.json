@@ -1,0 +1,19 @@
+{
+  "icons": [
+    {
+      "icon": "clipboard",
+      "file": "pis_legacy_clipboard.xml",
+      "sha256": "2879454203ddf7fc2f2ec19fff006fed7084b46e22ea6896ac0a9162f283be7b"
+    },
+    {
+      "icon": "mic",
+      "file": "pis_legacy_mic.xml",
+      "sha256": "46db9605b9f36f7d2d6a94346548cc94a1daf2e5b464b8460983138a991a5924"
+    },
+    {
+      "icon": "translate",
+      "file": "pis_legacy_translate.xml",
+      "sha256": "2284e60e229ce45109b1c4650c629f4790780d6dd3ac96d691f32051de1fdaf4"
+    }
+  ]
+}

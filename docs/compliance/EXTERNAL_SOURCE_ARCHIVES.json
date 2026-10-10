@@ -1,0 +1,92 @@
+[
+  {
+    "file": "sherpa-source.zip",
+    "component": "sherpa-onnx",
+    "url": "https://codeload.github.com/k2-fsa/sherpa-onnx/zip/refs/tags/v1.13.8",
+    "version_or_commit": "v1.13.8",
+    "bytes": 15384893,
+    "sha256": "b63b7613812346f2d1396a3a7f94accd47539e3dadc3ea385ba6474c70ab9897",
+    "snapshot_path": "vendor-source-archives/sherpa-source.zip"
+  },
+  {
+    "file": "espeak-ng-source.zip",
+    "component": "espeak-ng",
+    "url": "https://codeload.github.com/csukuangfj/espeak-ng/zip/ed530aa113046142eb5115cf2fc9157854d0ffe1",
+    "version_or_commit": "ed530aa113046142eb5115cf2fc9157854d0ffe1",
+    "bytes": 18011501,
+    "sha256": "e4e262cbe34f7fe21f91f1ba3397f2728e1f30eafbae7853f2b753a9ed13f0dd",
+    "snapshot_path": "vendor-source-archives/espeak-ng-source.zip"
+  },
+  {
+    "file": "piper-phonemize-source.zip",
+    "component": "piper-phonemize",
+    "url": "https://codeload.github.com/csukuangfj/piper-phonemize/zip/f3ff95afc03640bc1399e113e83361192a2fafb4",
+    "version_or_commit": "f3ff95afc03640bc1399e113e83361192a2fafb4",
+    "bytes": 9805962,
+    "sha256": "d9cca4e2bdc7d6dd8dffb96a4668283dbd3f77a9c194a3e530c1e8eba9406a5d",
+    "snapshot_path": "vendor-source-archives/piper-phonemize-source.zip"
+  },
+  {
+    "file": "kaldi-fbank-source.tar.gz",
+    "component": "kaldi-native-fbank",
+    "url": "https://codeload.github.com/csukuangfj/kaldi-native-fbank/tar.gz/refs/tags/v1.22.3",
+    "version_or_commit": "v1.22.3",
+    "bytes": 71144,
+    "sha256": "9176cc66fc7ce1edf85cf355b06e320c57db6297df74277f575183468893cf61",
+    "snapshot_path": "vendor-source-archives/kaldi-fbank-source.tar.gz"
+  },
+  {
+    "file": "kaldi-decoder-source.tar.gz",
+    "component": "kaldi-decoder",
+    "url": "https://codeload.github.com/k2-fsa/kaldi-decoder/tar.gz/refs/tags/v0.3.0",
+    "version_or_commit": "v0.3.0",
+    "bytes": 51199,
+    "sha256": "b9f34cfb4fd3b1344100eead79ef4d37aa15962274b9e3056de345021f76a1b0",
+    "snapshot_path": "vendor-source-archives/kaldi-decoder-source.tar.gz"
+  },
+  {
+    "file": "hclust-source.tar.gz",
+    "component": "hclust-cpp",
+    "url": "https://codeload.github.com/csukuangfj/hclust-cpp/tar.gz/refs/tags/2026-02-25",
+    "version_or_commit": "2026-02-25",
+    "bytes": 22523,
+    "sha256": "8f14e024c709d73afb40ae69cb22de4b73dba67cbce40f2e518813da8139ab56",
+    "snapshot_path": "vendor-source-archives/hclust-source.tar.gz"
+  },
+  {
+    "file": "openfst-source.tar.gz",
+    "component": "openfst",
+    "url": "https://codeload.github.com/csukuangfj/openfst/tar.gz/refs/tags/v1.8.5-2026-07-09",
+    "version_or_commit": "v1.8.5-2026-07-09",
+    "bytes": 1501685,
+    "sha256": "2ff712a32952fcb01d351121a6bc8ccf4fdc6b2aa06ce8df2b3095dedd518c0e",
+    "snapshot_path": "vendor-source-archives/openfst-source.tar.gz"
+  },
+  {
+    "file": "simple-sentencepiece-source.tar.gz",
+    "component": "simple-sentencepiece",
+    "url": "https://codeload.github.com/pkufool/simple-sentencepiece/tar.gz/refs/tags/v0.7",
+    "version_or_commit": "v0.7",
+    "bytes": 355335,
+    "sha256": "1748a822060a35baa9f6609f84efc8eb54dc0e74b9ece3d82367b7119fdc75af",
+    "snapshot_path": "vendor-source-archives/simple-sentencepiece-source.tar.gz"
+  },
+  {
+    "file": "onnxruntime-source.zip",
+    "component": "onnxruntime",
+    "url": "https://codeload.github.com/microsoft/onnxruntime/zip/refs/tags/v1.28.2",
+    "version_or_commit": "v1.28.2",
+    "bytes": 285298178,
+    "sha256": "0a71177b993c8406e0ae50574e2319bd0f53d3e89857cd9acdde0aea22ba27f1",
+    "snapshot_path": "vendor-source-archives/onnxruntime-source.zip"
+  },
+  {
+    "file": "Lua-source.tar.gz",
+    "component": "lua",
+    "url": "https://www.lua.org/ftp/lua-5.4.7.tar.gz",
+    "version_or_commit": "5.4.7",
+    "bytes": 374097,
+    "sha256": "9fbf5e28ef86c69858f6d3d34eccc32e911c1a28b4120ff3e84aaa70cfbf1e30",
+    "snapshot_path": "vendor-source-archives/Lua-source.tar.gz"
+  }
+]
