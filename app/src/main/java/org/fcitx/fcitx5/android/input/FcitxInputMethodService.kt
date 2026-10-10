@@ -183,6 +183,7 @@ class FcitxInputMethodService : LifecycleInputMethodService() {
 
     private val recreateInputViewPrefs: Array<ManagedPreference<*>> = arrayOf(
         prefs.keyboard.expandKeypressArea,
+        prefs.keyboard.candidateMaxWidth,
         prefs.advanced.disableAnimation,
         prefs.advanced.ignoreSystemWindowInsets,
     )

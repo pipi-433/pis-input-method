@@ -105,7 +105,7 @@ class HorizontalCandidateComponent :
         object : HorizontalCandidateViewAdapter(theme) {
             override fun onBindViewHolder(holder: CandidateViewHolder, position: Int) {
                 super.onBindViewHolder(holder, position)
-                holder.itemView.minimumWidth = layoutMinWidth
+                holder.itemView.minimumWidth = layoutMinWidth.coerceAtMost(holder.ui.maximumWidth)
                 holder.itemView.setOnClickListener {
                     if (holder.bindingAdapterPosition == RecyclerView.NO_POSITION) return@setOnClickListener
                     inputView.service.emitPisFeedback(org.fcitx.fcitx5.android.pis.feedback.PisFeedbackEvent.Pulse(
@@ -132,10 +132,12 @@ class HorizontalCandidateComponent :
             override fun canScrollVertically() = false
             override fun onLayoutCompleted(state: RecyclerView.State) {
                 super.onLayoutCompleted(state)
-                if (expandedOffsetNeedsLayout && findFirstVisibleItemPosition() == 0) {
-                    // Expanded candidates still start after the original first row.
-                    // Scrolling/appending must not continuously reset the expanded pager.
-                    refreshExpanded(findLastVisibleItemPosition() + 1)
+                val firstRowCount = findLastVisibleItemPosition() + 1
+                val atStart = findFirstVisibleItemPosition() == 0 &&
+                    (findViewByPosition(0)?.left ?: -1) >= view.paddingLeft
+                if (atStart && (expandedOffsetNeedsLayout || firstRowCount != expandedOffset)) {
+                    // A newly loaded hint can widen the first row. Expand after its current end.
+                    refreshExpanded(firstRowCount)
                     expandedOffsetNeedsLayout = false
                 }
                 // A very wide viewport may fit the initial 16 candidates completely.

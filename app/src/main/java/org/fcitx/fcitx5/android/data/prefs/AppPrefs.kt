@@ -245,6 +245,10 @@ class AppPrefs(private val sharedPreferences: SharedPreferences) {
             keyboardBottomPaddingLandscape = secondary
         }
 
+        val candidateMaxWidth = int(
+            R.string.candidate_max_width, "candidate_max_width", 240, 80, 480, "dp", 10
+        )
+
         val horizontalCandidateStyle = enumList(
             R.string.horizontal_candidate_style,
             "horizontal_candidate_style",

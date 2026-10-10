@@ -89,6 +89,9 @@ class PisSettingsActivity : Activity() {
         preferenceSlider("竖屏", AppPrefs.getInstance().keyboard.keyboardBottomPadding, 0, 80, "dp")
         preferenceSlider("横屏", AppPrefs.getInstance().keyboard.keyboardBottomPaddingLandscape, 0, 48, "dp")
         label("上移只增加键盘下方留白，按键高度不变。", 13)
+        label("候选显示", 20)
+        preferenceSlider("候选项最大宽度", AppPrefs.getInstance().keyboard.candidateMaxWidth, 80, 480, "dp")
+        label("候选词和释义共同决定宽度，达到上限后显示省略号；长按查看完整词义。", 13)
         label("按键反馈", 20)
         val keyboard = AppPrefs.getInstance().keyboard
         val enabledMode = org.fcitx.fcitx5.android.data.InputFeedbacks.InputFeedbackMode.Enabled

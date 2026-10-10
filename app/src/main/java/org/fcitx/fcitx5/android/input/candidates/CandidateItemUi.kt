@@ -21,7 +21,7 @@ import androidx.core.text.buildSpannedString
 import androidx.core.text.color
 import org.fcitx.fcitx5.android.core.CandidateWord
 import org.fcitx.fcitx5.android.data.theme.Theme
-import org.fcitx.fcitx5.android.input.AutoScaleTextView
+import org.fcitx.fcitx5.android.data.prefs.AppPrefs
 import org.fcitx.fcitx5.android.input.keyboard.CustomGestureView
 import org.fcitx.fcitx5.android.utils.pressHighlightDrawable
 import splitties.views.dsl.core.Ui
@@ -31,24 +31,26 @@ import splitties.views.dsl.core.matchParent
 import splitties.views.dsl.core.view
 import splitties.views.dsl.core.wrapContent
 import splitties.views.gravityCenter
-import kotlin.math.ceil
 
 class CandidateItemUi(override val ctx: Context, val theme: Theme) : Ui {
+    val maximumWidth = dp(AppPrefs.getInstance().keyboard.candidateMaxWidth.getValue().coerceIn(80, 480))
     private val scope = CoroutineScope(SupervisorJob()+Dispatchers.Main.immediate)
     private var query: Job? = null
     private var bound: CandidateWord = CandidateWord.Empty
     private var generation = 0
     private fun dp(value: Int) = (value*ctx.resources.displayMetrics.density).toInt()
     private val hint = TextView(ctx).apply {
-        textSize = 11f; setSingleLine(true); ellipsize = TextUtils.TruncateAt.END; maxWidth = dp(144)
+        textSize = 11f; setSingleLine(true); ellipsize = TextUtils.TruncateAt.END
+        setPadding(dp(2), 0, dp(2), 0)
         gravity = Gravity.CENTER
         setTextColor(if (theme.isDark) 0xffc3c3c3.toInt() else 0xff727780.toInt())
     }
 
-    private val text = view(::AutoScaleTextView) {
-        scaleMode = AutoScaleTextView.Mode.Proportional
+    private val text = view(::TextView) {
         textSize = 18f // sp; slightly larger for phone readability.
         isSingleLine = true
+        ellipsize = TextUtils.TruncateAt.END
+        setPadding(dp(2), 0, dp(2), 0)
         gravity = gravityCenter
         setTextColor(theme.candidateTextColor)
     }
@@ -63,6 +65,7 @@ class CandidateItemUi(override val ctx: Context, val theme: Theme) : Ui {
 
         val column = LinearLayout(ctx).apply {
             orientation = LinearLayout.VERTICAL; gravity = Gravity.CENTER
+            minimumWidth = dp(48)
             setPadding(0,dp(8),0,0)
             addView(hint,LinearLayout.LayoutParams(wrapContent,dp(18)))
             addView(text,LinearLayout.LayoutParams(wrapContent,dp(32)))
@@ -71,21 +74,33 @@ class CandidateItemUi(override val ctx: Context, val theme: Theme) : Ui {
             gravity = gravityCenter
         })
         addOnAttachStateChangeListener(object : View.OnAttachStateChangeListener {
-            override fun onViewAttachedToWindow(view: View) { loadHint() }
+            override fun onViewAttachedToWindow(view: View) { updateWidth(); loadHint() }
             override fun onViewDetachedFromWindow(view: View) { generation++; query?.cancel() }
         })
+    }
+    private fun updateWidth() {
+        // Both lines determine the content width; the user limit includes outer padding.
+        val contentLimit = (maximumWidth - root.paddingLeft - root.paddingRight).coerceAtLeast(1)
+        // Wrap-content measures the wider line and still respects expanded-grid constraints.
+        if (hint.maxWidth != contentLimit) hint.maxWidth = contentLimit
+        if (text.maxWidth != contentLimit) text.maxWidth = contentLimit
+    }
+
+    private fun updateHint(value: String) {
+        if (hint.text.toString() != value) hint.text = value
+        updateWidth()
     }
     private fun loadHint() {
         query?.cancel(); val token = ++generation; val candidate = bound
         if (candidate.text.isBlank()) return
         PisGlossary.cachedLegacyHint(candidate.text,candidate.comment)?.let {
-            if (hint.text.toString() != it) hint.text = it
+            updateHint(it)
             return
         }
         query = scope.launch {
             // A short hint needs only the old bilingual index, not full WordNet definitions.
             val entry = PisGlossary.lookupLegacy(ctx.applicationContext,candidate.text,candidate.comment)
-            if (token == generation && bound == candidate && hint.text.toString() != entry.hint) hint.text = entry.hint
+            if (token == generation && bound == candidate) updateHint(entry.hint)
         }
     }
 
@@ -107,13 +122,8 @@ class CandidateItemUi(override val ctx: Context, val theme: Theme) : Ui {
                 }
             }
         }
-        // Reserve the hint line from the primary word's size, before asynchronous lookup.
-        // A late English hint must not widen the chip and push all following candidates sideways.
-        val hintWidth = maxOf(dp(48),ceil(text.paint.measureText(text.text.toString())).toInt()).coerceAtMost(dp(144))
-        if (hint.minWidth != hintWidth) hint.minWidth = hintWidth
-        if (hint.maxWidth != hintWidth) hint.maxWidth = hintWidth
         val cached = PisGlossary.cachedLegacyHint(candidate.text,candidate.comment).orEmpty()
-        if (hint.text.toString() != cached) hint.text = cached
+        updateHint(cached)
         loadHint()
     }
 }

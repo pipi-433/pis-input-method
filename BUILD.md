@@ -1,8 +1,8 @@
 # 构建与对应源码
 
-当前目标：`pis'input method` 2.0.1 / 20012，`io.pis.inputmethod`，ARM64，Android 8.0 起。许可资料见 [LICENSING.md](LICENSING.md)，依赖和固定源码见 [docs/compliance/](docs/compliance/)。
+当前目标：`pis'input method` 2.0.2 / 20022，`io.pis.inputmethod`，ARM64，Android 8.0 起。许可资料见 [LICENSING.md](LICENSING.md)，依赖和固定源码见 [docs/compliance/](docs/compliance/)。
 
-最新 ARM64 Release 构建为 2.0.1，已包含[候选栏横向滑动](docs/releases/pis-horizontal-candidates.md)。最新 APK 的校验值见[构建记录](docs/releases/pis-2.0.1.md)；此前 APK 和源码 ZIP 保留为历史交付，旧 ZIP 不包含新滑动功能。
+当前源码 2.0.2 新增[候选项动态宽度](docs/releases/pis-2.0.2.md)，保留[候选栏横向滑动](docs/releases/pis-horizontal-candidates.md)。2.0.2 ARM64 Release 构建与包校验完成；包信息与校验文件见 [2.0.2 记录](docs/releases/pis-2.0.2.md)。此前 APK 和源码 ZIP 保留为历史交付，旧 ZIP 不包含横向滑动或动态宽度设置。
 
 ## 源码快照的内容
 
@@ -50,7 +50,7 @@ python tools/restore_source_inputs.py
 ## 先编译可自行安装的调试版
 
 ```powershell
-./gradlew.bat --no-daemon '-PpythonExecutable=python' '-PbuildABI=arm64-v8a' '-PbuildVersionName=2.0.1' :app:assembleDebug
+./gradlew.bat --no-daemon '-PpythonExecutable=python' '-PbuildABI=arm64-v8a' '-PbuildVersionName=2.0.2' :app:assembleDebug
 ```
 
 包名为 `io.pis.inputmethod.debug`，可以和正式版共存。模拟器改用 `x86_64`。首次需要联网获取固定源码/模型和 Maven 依赖；安装后的输入、翻译和语音不需要联网权限。
@@ -58,17 +58,17 @@ python tools/restore_source_inputs.py
 只检查 Kotlin 编译而不生成 APK 时使用：
 
 ```powershell
-./gradlew.bat --no-daemon '-PpythonExecutable=python' '-PbuildABI=arm64-v8a' '-PbuildVersionName=2.0.1' :app:compileDebugKotlin
+./gradlew.bat --no-daemon '-PpythonExecutable=python' '-PbuildABI=arm64-v8a' '-PbuildVersionName=2.0.2' :app:compileDebugKotlin
 ```
 
-PowerShell 下将整个 `-P...` 参数加引号，避免版本号 `2.0.0` 被拆成额外任务名。本轮候选栏滑动已通过该编译目标及 `:app:assembleRelease`，最新包检查通过；安装及 UI 测试待完成。
+PowerShell 下将整个 `-P...` 参数加引号，避免版本号被拆成额外任务名。2.0.2 Debug 构建（1 分 35 秒）、7 项单元测试和模拟器实际候选视图/输入引擎回归通过；ARM64 Release 构建（2 分 1 秒）、52 个接口方法检查及包校验通过。具体验证范围见 [2.0.2 记录](docs/releases/pis-2.0.2.md)。
 
 ## 自行签名的 Release
 
 使用自己的密钥构建修改版。通过环境变量 `SIGN_KEY_FILE`、`SIGN_KEY_ALIAS`、`SIGN_KEY_PWD` 传入自己的 keystore 信息，然后执行：
 
 ```powershell
-./gradlew.bat --no-daemon '-PpythonExecutable=python' '-PbuildABI=arm64-v8a' '-PbuildVersionName=2.0.1' :app:assembleRelease
+./gradlew.bat --no-daemon '-PpythonExecutable=python' '-PbuildABI=arm64-v8a' '-PbuildVersionName=2.0.2' :app:assembleRelease
 ```
 
 签名密码通过本机环境变量或交互输入传入。使用 JDK keytool 创建自己的 keystore，以专用证书签名正式版。未提供签名时 Gradle 可能产生 unsigned APK，需要自行签名后才能安装。
@@ -81,6 +81,6 @@ PowerShell 下将整个 `-P...` 参数加引号，避免版本号 `2.0.0` 被拆
 
 源码包记录发行 APK、依赖、模型和源码文件的 SHA256。重建时的签名、时间戳和构建元数据单独记录。已验证源码包文件清单、来源记录和敏感文件排除；独立解压重建列入后续验证项目。各版本的验证结果见对应发行记录。
 
-旧 2.0.0 APK/ZIP 的校验值和检查报告对应原文件。本次带新滑动功能的 APK 已在单独交付目录生成，并附新的哈希和包检查报告；原发行文件及源码 ZIP 保留。最新源码通过项目 GitHub 仓库提供。
+旧 APK/ZIP 的校验值和检查报告对应各自原文件。2.0.2 使用单独交付目录和新的哈希、包检查报告，校验文件随 Release 提供；原发行文件及源码 ZIP 保留。源码通过项目 GitHub 仓库提供。
 
 正式打包使用 `tools/build_release.ps1`：完整编译 Kotlin，并运行 `tools/check_fcitx_api.py` 检查代理接口，防止增量编译残留旧类。发布时可通过 `-CommitHash` 指定对应源码提交号。
