@@ -3,5 +3,6 @@
     <instrumentation android:name="io.pis.voiceprobe.VoiceProbe" android:targetPackage="io.pis.inputmethod.debug" android:functionalTest="true"/>
     <instrumentation android:name="io.pis.voiceprobe.WordFrequencyProbe" android:targetPackage="io.pis.inputmethod.debug" android:functionalTest="true"/>
     <instrumentation android:name="io.pis.voiceprobe.CandidateProbe" android:targetPackage="io.pis.inputmethod.debug" android:functionalTest="true"/>
+    <instrumentation android:name="io.pis.voiceprobe.CandidateEnglishProbe" android:targetPackage="io.pis.inputmethod.debug" android:functionalTest="true"/>
     <application android:label="pis voice verification"/>
 </manifest>

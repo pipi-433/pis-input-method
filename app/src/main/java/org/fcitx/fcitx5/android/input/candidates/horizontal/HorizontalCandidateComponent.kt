@@ -7,6 +7,9 @@ package org.fcitx.fcitx5.android.input.candidates.horizontal
 
 import android.content.res.Configuration
 import android.view.View
+import android.view.MotionEvent
+import android.view.ViewConfiguration
+import kotlin.math.abs
 import android.view.inputmethod.EditorInfo
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -106,6 +109,10 @@ class HorizontalCandidateComponent :
             override fun onBindViewHolder(holder: CandidateViewHolder, position: Int) {
                 super.onBindViewHolder(holder, position)
                 holder.itemView.minimumWidth = layoutMinWidth.coerceAtMost(holder.ui.maximumWidth)
+                holder.ui.root.upActionFactory = {
+                    if (holder.bindingAdapterPosition == RecyclerView.NO_POSITION) null
+                    else inputView.candidateEnglishAction(holder.idx, holder.candidate)
+                }
                 holder.itemView.setOnClickListener {
                     if (holder.bindingAdapterPosition == RecyclerView.NO_POSITION) return@setOnClickListener
                     inputView.service.emitPisFeedback(org.fcitx.fcitx5.android.pis.feedback.PisFeedbackEvent.Pulse(
@@ -120,6 +127,7 @@ class HorizontalCandidateComponent :
             }
 
             override fun onViewRecycled(holder: CandidateViewHolder) {
+                holder.ui.root.upActionFactory = null
                 holder.itemView.setOnClickListener(null)
                 holder.itemView.setOnLongClickListener(null)
                 super.onViewRecycled(holder)
@@ -149,6 +157,21 @@ class HorizontalCandidateComponent :
 
     override val view by lazy {
         object : RecyclerView(context) {
+            private var touchX = 0f
+            private var touchY = 0f
+            private var touchAxis = 0
+            private val slop = ViewConfiguration.get(context).scaledTouchSlop
+
+            override fun onInterceptTouchEvent(event: MotionEvent): Boolean {
+                if (event.actionMasked == MotionEvent.ACTION_DOWN) {
+                    touchX = event.x; touchY = event.y; touchAxis = 0
+                } else if (event.actionMasked == MotionEvent.ACTION_MOVE) {
+                    val dx = abs(event.x - touchX); val dy = abs(event.y - touchY)
+                    if (touchAxis == 0 && maxOf(dx, dy) > slop) touchAxis = if (dy > dx) 2 else 1
+                    if (touchAxis == 2) return false
+                }
+                return super.onInterceptTouchEvent(event)
+            }
             override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
                 super.onSizeChanged(w, h, oldw, oldh)
                 if (w != oldw) {

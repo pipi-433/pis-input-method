@@ -3,5 +3,6 @@
     <application>
         <activity android:name=".pis.PisKeyboardTestActivity"
             android:exported="true" android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".pis.PisMeaningPreviewActivity" android:exported="true" />
     </application>
 </manifest>

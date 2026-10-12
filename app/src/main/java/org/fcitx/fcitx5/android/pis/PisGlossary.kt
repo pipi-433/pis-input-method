@@ -44,6 +44,13 @@ object PisGlossary {
     suspend fun lookupLegacy(context: Context, word: String, reading: String = ""): Entry =
         lookup(context, word, reading, withEnglishDefinitions = false)
 
+    suspend fun englishTranslation(context: Context, word: String, reading: String = ""): String? {
+        if (word.none { it in '\u3400'..'\u9fff' || it in '\uf900'..'\ufaff' }) return null
+        return englishHint(lookupLegacy(context, word, reading).hint)
+    }
+
+    fun englishHint(hint: String): String? = PisCandidateEnglish.fromHint(hint)
+
     suspend fun lookup(context: Context, word: String, reading: String = "", withEnglishDefinitions: Boolean = true): Entry = withContext(Dispatchers.IO) {
         if (word.isBlank() || word.length > 40 || !context.getSystemService(android.os.UserManager::class.java).isUserUnlocked) return@withContext empty
         val canonical = reading.lowercase(Locale.ROOT).replace(readingFilter,"")

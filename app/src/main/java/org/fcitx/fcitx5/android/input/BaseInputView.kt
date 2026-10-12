@@ -8,9 +8,9 @@ package org.fcitx.fcitx5.android.input
 import android.view.View
 import android.view.WindowInsets
 import android.widget.PopupMenu
-import android.app.AlertDialog
 import org.fcitx.fcitx5.android.core.CandidateWord
 import org.fcitx.fcitx5.android.pis.PisGlossary
+import org.fcitx.fcitx5.android.pis.PisCandidateMeaningDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.text.bold
 import androidx.core.text.buildSpannedString
@@ -19,6 +19,9 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import android.text.InputType
 import org.fcitx.fcitx5.android.R
 import org.fcitx.fcitx5.android.core.FcitxEvent
 import org.fcitx.fcitx5.android.daemon.FcitxConnection
@@ -77,29 +80,72 @@ abstract class BaseInputView(
     private var candidateActionMenu: PopupMenu? = null
 
     val themedContext = context.withTheme(R.style.Theme_InputViewTheme)
-    private var meaningDialog: AlertDialog? = null
+    private var meaningDialog: PisCandidateMeaningDialog? = null
     private var meaningQuery: Job? = null
+    private var englishQuery: Job? = null
+    private var englishEpoch = 0L
+
+    fun candidateEnglishAction(idx: Int, word: CandidateWord): (() -> Unit)? {
+        val epoch = ++englishEpoch
+        englishQuery?.cancel()
+        val editor = service.currentInputConnection ?: return null
+        val info = service.currentInputEditorInfo ?: return null
+        val variation = info.inputType and InputType.TYPE_MASK_VARIATION
+        val password = if ((info.inputType and InputType.TYPE_MASK_CLASS) == InputType.TYPE_CLASS_NUMBER)
+            variation == InputType.TYPE_NUMBER_VARIATION_PASSWORD
+        else variation in listOf(InputType.TYPE_TEXT_VARIATION_PASSWORD, InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD, InputType.TYPE_TEXT_VARIATION_WEB_PASSWORD)
+        if (password) return null
+        val state = fcitx.runImmediately { candidateListCached }
+        val start = service.currentInputSelection.start
+        val end = service.currentInputSelection.end
+        fun current() = epoch == englishEpoch && isAttachedToWindow && isShown && windowVisibility == View.VISIBLE && editor === service.currentInputConnection &&
+            info === service.currentInputEditorInfo && start == service.currentInputSelection.start && end == service.currentInputSelection.end &&
+            fcitx.runImmediately { candidateListCached === state }
+        return action@{
+            if (!current()) return@action
+            englishQuery?.cancel()
+            englishQuery = service.lifecycleScope.launch {
+                val english = PisGlossary.englishTranslation(context.applicationContext, word.text, word.comment) ?: return@launch
+                if (!current()) return@launch
+                service.postFcitxJob {
+                    val candidate = getCandidates(idx, 1).firstOrNull()
+                    if (candidateListCached !== state || candidate?.text != word.text || candidate.comment != word.comment) return@postFcitxJob
+                    withContext(Dispatchers.Main.immediate) {
+                        if (current()) {
+                            // Replace the Android composing range before native reset emits empty preedit.
+                            val accepted = service.commitCandidateEnglish(english)
+                            if (accepted) reset()
+                            service.emitPisFeedback(org.fcitx.fcitx5.android.pis.feedback.PisFeedbackEvent.Pulse(
+                                if (accepted) org.fcitx.fcitx5.android.pis.feedback.PisFeedbackEvent.Kind.Confirm
+                                else org.fcitx.fcitx5.android.pis.feedback.PisFeedbackEvent.Kind.Error))
+                        }
+                    }
+                }.join()
+            }
+        }
+    }
     fun showCandidateMeaning(idx: Int, word: CandidateWord, anchor: View) {
+        englishEpoch++; englishQuery?.cancel()
         meaningDialog?.dismiss(); meaningQuery?.cancel()
         val connection = service.currentInputConnection
         InputFeedbacks.hapticFeedback(anchor,longPress = true)
-        val dialog = AlertDialog.Builder(service,if (theme.isDark) android.R.style.Theme_Material_Dialog_Alert else android.R.style.Theme_Material_Light_Dialog_Alert)
-            .setTitle(word.text).setMessage("正在读取本地释义…")
-            .setPositiveButton("关闭",null)
-            .setNeutralButton("候选操作") { _, _ ->
-                service.lifecycleScope.launch {
-                    val current = fcitx.runOnReady { getCandidates(idx,1).firstOrNull() }
-                    if (service.currentInputConnection === connection && current?.text == word.text) showCandidateActionMenu(idx,word.text,anchor)
-                }
-            }.create()
+        val dialog = PisCandidateMeaningDialog(service, theme, word.text) {
+            service.lifecycleScope.launch {
+                val current = fcitx.runOnReady { getCandidates(idx,1).firstOrNull() }
+                if (service.currentInputConnection === connection && current?.text == word.text) showCandidateActionMenu(idx,word.text,anchor)
+            }
+        }
         meaningDialog = dialog
-        dialog.setOnDismissListener { meaningQuery?.cancel(); if (meaningDialog === dialog) meaningDialog = null }
+        dialog.onClosed = {
+            if (meaningDialog === dialog) {
+                meaningQuery?.cancel(); meaningQuery = null; meaningDialog = null
+            }
+        }
         service.showDialog(dialog)
         meaningQuery = service.lifecycleScope.launch {
             val entry = PisGlossary.lookupLegacy(context.applicationContext,word.text,word.comment)
             if (dialog.isShowing && connection === service.currentInputConnection) {
-                val body = entry.definition.ifBlank { "本地词库暂无这个词的释义" }
-                dialog.setMessage(body)
+                dialog.setDefinition(entry.definition)
                 service.emitPisFeedback(org.fcitx.fcitx5.android.pis.feedback.PisFeedbackEvent.Pulse(
                     org.fcitx.fcitx5.android.pis.feedback.PisFeedbackEvent.Kind.Confirm))
             }
@@ -175,6 +221,8 @@ abstract class BaseInputView(
     }
 
     override fun onDetachedFromWindow() {
+        englishEpoch++
+        englishQuery?.cancel()
         meaningQuery?.cancel(); meaningDialog?.dismiss()
         handleEvents = false
         super.onDetachedFromWindow()

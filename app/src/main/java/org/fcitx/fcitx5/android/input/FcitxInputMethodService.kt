@@ -469,6 +469,15 @@ class FcitxInputMethodService : LifecycleInputMethodService() {
         currentInputConnection.setSelection(target, target)
     }
 
+    fun commitCandidateEnglish(text: String): Boolean {
+        val editor = currentInputConnection ?: return false
+        val start = if (composing.isEmpty()) selection.latest.start else composing.start
+        return org.fcitx.fcitx5.android.pis.PisCandidateEnglish.commitToEditor(editor, text) {
+            resetComposingState()
+            selection.predict(start + text.length)
+        }
+    }
+
     fun commitText(text: String, cursor: Int = -1) {
         val ic = currentInputConnection ?: return
         // when composing text equals commit content, finish composing text as-is

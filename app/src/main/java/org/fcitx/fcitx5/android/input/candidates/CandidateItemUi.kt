@@ -22,7 +22,7 @@ import androidx.core.text.color
 import org.fcitx.fcitx5.android.core.CandidateWord
 import org.fcitx.fcitx5.android.data.theme.Theme
 import org.fcitx.fcitx5.android.data.prefs.AppPrefs
-import org.fcitx.fcitx5.android.input.keyboard.CustomGestureView
+import org.fcitx.fcitx5.android.pis.PisCandidateSwipeView
 import org.fcitx.fcitx5.android.utils.pressHighlightDrawable
 import splitties.views.dsl.core.Ui
 import splitties.views.dsl.core.add
@@ -55,7 +55,7 @@ class CandidateItemUi(override val ctx: Context, val theme: Theme) : Ui {
         setTextColor(theme.candidateTextColor)
     }
 
-    override val root = view(::CustomGestureView) {
+    override val root = view(::PisCandidateSwipeView) {
         background = pressHighlightDrawable(theme.keyPressHighlightColor)
 
         /**

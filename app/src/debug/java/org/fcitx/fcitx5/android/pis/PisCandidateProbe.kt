@@ -16,6 +16,15 @@ object PisCandidateProbe {
         val connection = FcitxDaemon.connect(name)
         val report = JSONObject()
         try {
+            val translations = JSONObject()
+            for ((word, expected) in listOf("技术" to "technology", "建设" to "to build", "基数" to "cardinal number", "恶化" to "to worsen")) {
+                val result = PisGlossary.englishTranslation(context, word)
+                check(result == expected) { "$word English mapping: $result" }
+                translations.put(word, result)
+            }
+            check(PisGlossary.englishTranslation(context, "根本不存在的示例词条") == null)
+            check(PisGlossary.englishTranslation(context, "technology") == null)
+            report.put("english_mappings", translations)
             connection.runOnReady {
                 activate(1001, "io.pis.voiceprobe")
                 setCapFlags(CapabilityFlags.DefaultFlags)
