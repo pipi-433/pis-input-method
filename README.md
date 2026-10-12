@@ -1,12 +1,14 @@
 # pis' input method
 
-pis 是基于 Fcitx5 Android 0.1.3 固定底座修改的 Android 输入法。当前源码版本 2.0.2，使用独立包名 `io.pis.inputmethod`；上游版权和第三方许可保留。
+pis 是基于 Fcitx5 Android 0.1.3 固定底座修改的 Android 输入法。当前源码版本 2.0.3，使用独立包名 `io.pis.inputmethod`；上游版权和第三方许可保留。
 
 ## 特点与亮点
 
 - **离线输入与本地 AI**：拼音候选、词义查询、整句翻译、语音识别和标点处理都在手机上完成，日常使用无需联网或登录账号。
 - **全拼与首道双拼**：支持中英切换、声韵母角标、模糊音和个人词库学习；提供 QWERTY 与纯数字九宫格。
 - **候选栏横向浏览**：左右滑动查看更多中文候选和英文单词，点击选词、长按查看词义，右侧状态灯保持固定。
+- **候选上滑英文**：向上滑动候选词输入首条本地英文；无英文映射或编辑器拒绝写入时保留候选。
+- **玻璃词义弹窗**：长按查看词义，弹窗随键盘浅/深色主题变化；系统支持时启用原生背景模糊。
 - **候选宽度随内容调整**：候选词和释义共同决定显示宽度，保持字体大小；设置页“候选显示”可调整最大宽度，默认 240dp，范围 80–480dp，达到上限后显示省略号。
 - **数字与符号快捷输入**：26 个字母键长按或上滑输入角标数字/符号；句号长按离线翻译，空格长按语音输入，逗号长按剪贴板。
 - **可管理的个人词频**：搜索、添加词条，调整近期次数与固定优先级，清零或删除学习记录。
@@ -22,22 +24,23 @@ pis 是基于 Fcitx5 Android 0.1.3 固定底座修改的 Android 输入法。当
 
 ## 当前版本
 
-正式下载仍为 **v2.0.2**。2026-10-12 源码新增顶部候选上滑输入首条本地英文，以及随键盘主题变化的玻璃词义弹窗；这两项尚未发布到下载 APK。操作与验证见 [源码新增功能说明](docs/features/pis-candidate-english-and-glass.md)。
+**2.0.3** 已将候选上滑英文与玻璃词义弹窗纳入正式 ARM64 安装包，沿用原 Release 签名。构建与包校验通过，见 [2.0.3 发行记录](docs/releases/pis-2.0.3.md)；操作见 [功能说明](docs/features/pis-candidate-english-and-glass.md)。旧 v2.0.2 APK 不包含这两项功能。
 
 2.0.2 新增候选项动态宽度和最大宽度设置。Debug 构建、7 项单元测试及模拟器实际视图/输入引擎回归通过；ARM64 Release 构建与包校验完成。模拟器验证，vivo 真机尚未验证。
 
 保留 2.0.1 的候选分页修复、准确首道编码和字母上滑快捷输入。零声母 `UE → e`、`UI → ei`、`UF → eng`；带声母时 `M` 仍对应 `ei`，`V` 对应 `ui`。
 
-- [2.0.2 ARM64 APK 与校验文件](https://github.com/pipi-433/pis-input-method/releases/tag/v2.0.2)
+- [2.0.3 ARM64 APK 与校验文件](https://github.com/pipi-433/pis-input-method/releases/tag/v2.0.3)
 - [当前实现状态](PIS_MIGRATION_STATUS.md) · [候选栏滑动说明](docs/releases/pis-horizontal-candidates.md)
-- [2.0.2 更新与验证记录](docs/releases/pis-2.0.2.md) · [2.0.1 修复记录](docs/releases/pis-2.0.1.md) · [此前 2.0.0 交付记录](docs/releases/pis-2.0.0.md)
+- [2.0.3 发行记录](docs/releases/pis-2.0.3.md) · [2.0.2 更新记录](docs/releases/pis-2.0.2.md) · [2.0.1 修复记录](docs/releases/pis-2.0.1.md) · [此前 2.0.0 交付记录](docs/releases/pis-2.0.0.md)
 - [许可范围](LICENSING.md) · [第三方声明](THIRD_PARTY_NOTICES.md) · [完整许可文本](LICENSES/) · [NOTICE](NOTICE)
 - [修改记录](CHANGES.md) · [构建与对应源码](BUILD.md) · [许可资料索引](docs/compliance/README.md)
 
 | 内容 | 当前状态 |
 |---|---|
-| 当前源码（版本仍为 2.0.2） | 新增候选上滑英文与玻璃词义弹窗，尚未发布 APK |
-| 正式 v2.0.2 ARM64 APK | 包信息见 2.0.2 验证记录，不包含上述源码新增功能 |
+| 当前源码 2.0.3 | 包含候选上滑英文与玻璃词义弹窗 |
+| 2.0.3 ARM64 APK | 原签名正式包，构建与包校验通过 |
+| 此前 v2.0.2 ARM64 APK | 历史发行，不包含上述两项功能 |
 | 已发布 2.0.1 ARM64 APK | 包信息见 2.0.1 验证记录，不包含动态宽度设置 |
 | 此前 2.0.0 APK / 本地源码 ZIP | 历史交付，不包含此次候选栏滑动 |
 

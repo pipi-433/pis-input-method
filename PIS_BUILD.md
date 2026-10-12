@@ -2,14 +2,14 @@
 
 发行许可与对应源码资料见 [LICENSING.md](LICENSING.md)、[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)、[CHANGES.md](CHANGES.md) 和 [BUILD.md](BUILD.md)。语音 AAR 内各组件的许可证单独保留。
 
-当前正式构建为 2.0.2（ARM64 versionCode 20022），包名 `io.pis.inputmethod`。调试版包名为 `io.pis.inputmethod.debug`，可以共存。当前包信息见 [2.0.2 最新构建](docs/releases/pis-2.0.2.md)，[2.0.1 记录](docs/releases/pis-2.0.1.md)、[此前 2.0.0 记录](docs/releases/pis-2.0.0.md)及旧 preview 文档保留作历史。
+当前正式构建为 2.0.3（ARM64 versionCode 20032），包名 `io.pis.inputmethod`。调试版包名为 `io.pis.inputmethod.debug`，可以共存。当前包信息见 [2.0.3 构建记录](docs/releases/pis-2.0.3.md)；[2.0.2](docs/releases/pis-2.0.2.md)、[2.0.1](docs/releases/pis-2.0.1.md)、[此前 2.0.0](docs/releases/pis-2.0.0.md)及旧 preview 文档保留作历史。
 
-最新源码及本次 ARM64 Release APK 已包含[候选项动态宽度](docs/releases/pis-2.0.2.md)与[候选栏横向滑动](docs/releases/pis-horizontal-candidates.md)，Release 编译、签名、模型哈希和 16KB 对齐检查通过。旧 2.0.0 APK 和源码 ZIP 不包含横向滑动；旧版记录作为历史交付保留，最新包使用单独目录和校验记录。模拟器验证，vivo 真机尚未验证。
+本次正式 ARM64 包已包含[候选上滑英文与玻璃词义弹窗](docs/features/pis-candidate-english-and-glass.md)，保留候选项动态宽度与横向滑动。Release 编译、52 个接口方法检查、原签名、模型/词典哈希与 16KB 对齐检查通过。旧 v2.0.2 APK 不包含上述两项新功能；旧版记录作为历史交付保留，新包使用单独目录和校验记录。
 
 正式版使用专用签名、Release 构建和 R8 代码/资源裁剪。设置 `JAVA_HOME`、`ANDROID_HOME`、`ECM_DIR` 及以下模型/源码环境后，执行：
 
 ```powershell
-./tools/build_release.ps1 -Version '2.0.2' -Python 'python' -OutputDirectory '你的本地交付目录'
+./tools/build_release.ps1 -Version '2.0.3' -Python 'python' -OutputDirectory '你的本地交付目录'
 ```
 
 签名位于忽略目录 `.pis-local/signing/`：`pis-release.jks` 与 `credentials.xml`。后者使用 Windows DPAPI 加密，仅当前 Windows 用户/机器可解密。必须单独安全备份原密钥和密码，不能放进公开源码、交付目录或 APK；后续更新必须复用同一密钥。换电脑时恢复同一 JKS，并用原密码重新生成本机 PSCredential 文件。脚本不会自动生成或替换签名密钥。版本递增时同时更新 `Versions.baseVersionCode`；ARM64 实际 code 为 base × 10 + 2。
@@ -25,8 +25,8 @@
 Windows gettext-tools 1.0需要同版本gettext-runtime、gettext-libtextstyle与libiconv运行库；只有msgfmt.exe还不够。若退出码-1073741515，先核对其DLL导入并补齐官方MSYS2运行包。本地补充放在.pis-local/host-tools，PATH加入该bin目录；配置生成使用原生工具链。
 
 ```powershell
-./gradlew.bat --no-daemon '-PbuildABI=x86_64' '-PbuildVersionName=2.0.2' :app:assembleDebug
-./gradlew.bat --no-daemon '-PbuildABI=arm64-v8a' '-PbuildVersionName=2.0.2' :app:assembleDebug
+./gradlew.bat --no-daemon '-PbuildABI=x86_64' '-PbuildVersionName=2.0.3' :app:assembleDebug
+./gradlew.bat --no-daemon '-PbuildABI=arm64-v8a' '-PbuildVersionName=2.0.3' :app:assembleDebug
 ```
 
 调试版包名 `io.pis.inputmethod.debug`，应用名 `pis'input method`。手机使用 ARM64，模拟器使用 x86_64。

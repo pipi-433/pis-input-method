@@ -1,8 +1,8 @@
 # pis 输入法：Fcitx 底座与独立界面
 
-pis 基于 Fcitx5 Android 0.1.3，固定提交 `048f581c652367567b8ee5c28c5163b805288895`，保留上游版权和许可证。最新构建为 2.0.2 / 20022，包名 `io.pis.inputmethod`，使用 ARM64 Release 构建和专用签名，包含候选项动态宽度和候选栏横向滑动。
+pis 基于 Fcitx5 Android 0.1.3，固定提交 `048f581c652367567b8ee5c28c5163b805288895`，保留上游版权和许可证。当前正式构建为 2.0.3 / 20032，包名 `io.pis.inputmethod`，使用 ARM64 Release 构建和原专用签名，包含候选项动态宽度和候选栏横向滑动。
 
-2026-10-12 源码新增候选上滑英文和玻璃词义弹窗，尚未发布到下载 APK。正式 Release 仍为 v2.0.2，版本号保持不变，见 [源码新增功能说明](docs/features/pis-candidate-english-and-glass.md)。
+2.0.3 已将候选上滑英文和玻璃词义弹窗纳入正式 ARM64 包，本轮构建与包校验通过。操作见 [功能说明](docs/features/pis-candidate-english-and-glass.md)，构建信息见 [2.0.3 记录](docs/releases/pis-2.0.3.md)。旧 v2.0.2 APK 不包含这两项功能。
 
 ## 界面与设置
 
@@ -14,7 +14,7 @@ pis 基于 Fcitx5 Android 0.1.3，固定提交 `048f581c652367567b8ee5c28c5163b8
 
 候选词和释义两行共同决定候选项宽度，保持原字号，达到可用宽度后在行尾显示省略号。设置页“候选显示 / 候选项最大宽度”默认 240dp，可调 80–480dp，上限包含横向内边距；展开网格同时受单元格宽度限制。
 
-源码新增的词义弹窗使用键盘主题颜色、半透明渐变和玻璃边缘。浅色、深色和横屏保持统一布局；API 31 及以上在系统支持时启用原生背景模糊，并在模糊能力变化时调整面板背景。
+词义弹窗使用键盘主题颜色、半透明渐变和玻璃边缘。浅色、深色和横屏保持统一布局；API 31 及以上在系统支持时启用原生背景模糊，并在模糊能力变化时调整面板背景。
 
 ## 输入与本地服务
 
@@ -22,14 +22,14 @@ pis 基于 Fcitx5 Android 0.1.3，固定提交 `048f581c652367567b8ee5c28c5163b8
 
 长按逗号打开剪贴板，长按句号进行离线翻译，长按空格进行离线语音识别。候选短释义和长按词义通过本地 `gloss.db` 查询。WordNet 仅用于调试版实验。
 
-源码新增顶部候选上滑输入首条本地英文，例如“技术 → technology”“基数 → cardinal number”。无英文映射时不提交文本、不选中中文候选；原点击、左右滑动和长按入口保留。手势从按下时捕获候选与输入状态，提交前检查当前输入会话。
+顶部候选上滑输入首条本地英文，例如“技术 → technology”“基数 → cardinal number”。无英文映射时不提交文本、不选中中文候选；原点击、左右滑动和长按入口保留。手势从按下时捕获候选与输入状态，提交前检查当前输入会话；编辑器拒绝写入时保留候选。
 
 翻译通过 JNI 和独立进程 Binder 接入 llama.cpp / Hy-MT2，语音使用 sherpa-onnx、Zipformer 与标点模型。服务预热在已解锁且输入法被选中时执行；系统回收进程后重新加载。
 
 ## 项目资料
 
-- [候选英文与玻璃词义弹窗（源码新增）](docs/features/pis-candidate-english-and-glass.md)
-- [最新 APK 构建记录](docs/releases/pis-2.0.2.md)
+- [候选英文与玻璃词义弹窗](docs/features/pis-candidate-english-and-glass.md)
+- [最新 APK 构建记录](docs/releases/pis-2.0.3.md)
 - [候选栏滑动说明](docs/releases/pis-horizontal-candidates.md)
 - [实现状态](PIS_MIGRATION_STATUS.md)
 - [构建方法](BUILD.md)与[维护者构建配置](PIS_BUILD.md)
